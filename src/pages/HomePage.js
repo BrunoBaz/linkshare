@@ -1,3 +1,14 @@
+import { LinksList } from "../components/LinksList";
+import { useLinks } from "../hooks/useLinks";
+
 export const HomePage = () => {
-  return <p>Estamos en la home</p>;
+  const { links, error, loading } = useLinks();
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>{error}</p>;
+
+  return (
+    <section>
+      <LinksList links={links} />
+    </section>
+  );
 };
