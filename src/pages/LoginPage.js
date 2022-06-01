@@ -25,7 +25,7 @@ export const LoginPage = () => {
   };
   return (
     <section>
-      <h1>Logikkkkkkn</h1>
+      <h1>Login</h1>
       <form onSubmit={handleForm}>
         <fieldset>
           <label htmlFor="email">Email</label>

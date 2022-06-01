@@ -3,7 +3,7 @@ import { getAllLinksService } from "../services/getAllLinksService";
 
 export const useLinks = () => {
   const [links, setLinks] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -20,5 +20,11 @@ export const useLinks = () => {
     };
     loadLinks();
   }, []);
-  return { links, loading, error };
+  const addLink = (data) => {
+    setLinks([data, ...links]);
+  };
+  const deleteLink = (id) => {
+    setLinks(links.filter((link) => link.id !== id));
+  };
+  return { links, loading, error, addLink, deleteLink };
 };
