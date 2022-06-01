@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
 import { Links } from "./Links";
 
-export const LinksList = ({ links }) => {
+export const LinksList = ({ links, deleteLink }) => {
   return links.length ? (
     <ul>
       {links.map((link) => (
         <li key={link.id}>
-          <Links link={link} />
+          <Links link={link} deleteLink={deleteLink} />
         </li>
       ))}
     </ul>

@@ -10,6 +10,5 @@ export const getMyDataService = async (token) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
-
   return json.data;
 };
