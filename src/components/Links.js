@@ -25,7 +25,7 @@ export const Links = ({ link, deleteLink }) => {
     <article>
       {/* imagen del usuario */}
       <h2>{link.titulo}</h2>
-      {/* <LinkPreview url={link.url} width="20rem" /> */}
+      { <LinkPreview url={link.url} width="20rem" /> }
       <a href={link.url}>{link.url}</a>
       <p>{link.descripcion}</p>
       <p>Likes {link.votes}</p>
