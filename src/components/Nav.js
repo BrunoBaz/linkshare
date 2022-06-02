@@ -1,22 +1,34 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import avatarDefault from '../assets/img/avatar-default.svg'
+import "./Nav.css";
 
 export const Nav = () => {
   const { user, logout } = useContext(AuthContext);
   return user ? (
-    <section>
-      Logged in as <Link to={`/user/${user.id}`}>{user.email}</Link>
-      <button onClick={() => logout()}>Logout</button>
-    </section>
+      <nav>
+      <div className="menu-links">
+        <div><img
+            src={avatarDefault}
+            alt="logo Linkshare"
+            className="avatar"
+          /></div>
+        <a className="my-user-name">{user.userName}</a>
+      <Link to={`/user/${user.id}`} className="link-menu">Ver perfil</Link>
+      <button onClick={() => logout()} className="boton-logout">Cerrar sesión</button>
+      </div>
+      </nav>
   ) : (
     <nav>
-      <li>
-        <Link to="/register">Register</Link>
+     <div className="menu-links">
+        <li>
+        <Link to="/register" className="link-menu">Register</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login" className="link-menu">Login</Link>
       </li>
+      </div>
     </nav>
   );
 };
