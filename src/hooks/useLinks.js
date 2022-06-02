@@ -23,8 +23,11 @@ export const useLinks = () => {
   const addLink = (data) => {
     setLinks([data, ...links]);
   };
+  const refreshLike = (like) => {
+    setLinks([like, ...links]);
+  };
   const deleteLink = (id) => {
     setLinks(links.filter((link) => link.id !== id));
   };
-  return { links, loading, error, addLink, deleteLink };
+  return { links, loading, error, addLink, deleteLink, refreshLike };
 };
