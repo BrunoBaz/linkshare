@@ -23,7 +23,7 @@ li {
 
 .avatar {
   position: relative;
-  top: 0rem;
+  top: 1rem;
   right: auto;
   height: 4rem;
   border-radius: 50rem;
@@ -33,7 +33,7 @@ p.nombre-usuario-nav {
   color: #14b5bf;
   font-weight: 600;
   font-size: 1rem;
-  line-height: 0.1rem;
+  line-height: 1rem;
 }
 
 p.ver-perfil-nav {
@@ -46,7 +46,7 @@ p.ver-perfil-nav {
 .boton-logout {
   color: #bdf1f4;
   background-color: #14b5bf;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 3rem;
   border-style: none;
   border-radius: 1rem;
@@ -60,7 +60,7 @@ p.ver-perfil-nav {
 .boton-logout:hover {
   color: #000000;
   background-color: #961212;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 3rem;
   border-style: none;
   border-radius: 1rem;
@@ -69,5 +69,4 @@ p.ver-perfil-nav {
   padding: 0.3rem 1rem;
   cursor: pointer;
   box-shadow: inset 0rem 0rem 0.1rem rgba(0, 0, 0, 0.25);
-
 }
