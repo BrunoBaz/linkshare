@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { sendLinkService } from "../services/sendLinkService";
+import "./NewLink.css";
 
 export const NewLink = ({ addLink }) => {
   const { token } = useContext(AuthContext);
@@ -23,25 +24,51 @@ export const NewLink = ({ addLink }) => {
   };
 
   return (
-    <form onSubmit={handleForm}>
-      <h1>New post link</h1>
-      <fieldset>
-        <label htmlFor="titulo">Título</label>
-        <input type="text" id="titulo" name="titulo" required />
-      </fieldset>
-      <fieldset>
-        <label htmlFor="url">
-          URL
-          <input type="url" id="url" name="url" required />
-        </label>
-      </fieldset>
-      <fieldset>
-        <label htmlFor="descripcion">Descripción</label>
-        <input type="text" id="descripcion" name="descripcion" required />
-      </fieldset>
-      <button type="submit">Enviar</button>
-      {sending ? <p>Sending post</p> : null}
-      {error ? <p>{error}</p> : null}
-    </form>
+    <addLink>
+      <form onSubmit={handleForm} className="newlink-menu">
+        <h1 className="nuevo-enlace">Nuevo enlace</h1>
+        <fieldset className="formulario-publicar-link">
+          <label htmlFor="titulo"></label>
+          <h2 className="texto-formulario-añadir-link">1-.Añade un título</h2>
+          <input
+            type="text"
+            id="titulo"
+            name="titulo"
+            required
+            placeholder='"Un sitio para compartir enlaces"*'
+          />
+
+          <label htmlFor="url"></label>
+          <h2 className="texto-formulario-añadir-link">
+            2-.¿Cúal es enlace que quieres compartir?
+          </h2>
+          <input
+            type="url"
+            id="url"
+            name="url"
+            required
+            placeholder='"www.linkshare.com"*'
+          />
+
+          <label htmlFor="descripcion"></label>
+          <h2 className="texto-formulario-añadir-link">
+            3-.¿Para que sirve este enlace?
+          </h2>
+          <textarea
+            type="text"
+            id="descripcion"
+            name="descripcion"
+            required
+            placeholder='"Es una plataforma para compartir enlaces de interes"*'
+          />
+
+          <button type="submit" className="boton-enviar">
+            Publicar
+          </button>
+        </fieldset>
+        {sending ? <p>Sending post</p> : null}
+        {error ? <p>{error}</p> : null}
+      </form>
+    </addLink>
   );
 };

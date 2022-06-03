@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { LinksList } from "../components/LinksList";
-import { NewLink } from "../components/NewLink";
 import { AuthContext } from "../context/AuthContext";
 import { useLinks } from "../hooks/useLinks";
 
@@ -14,7 +13,6 @@ export const HomePage = () => {
 
   return (
     <section>
-      {user && <NewLink addLink={addLink} />}
       <LinksList
         links={links}
         deleteLink={deleteLink}
