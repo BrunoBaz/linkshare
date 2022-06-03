@@ -1,6 +1,7 @@
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { deleteLinkService } from "../services/deleteLinkService";
 import { likeService } from "../services/likeService";
@@ -23,11 +24,11 @@ export const Links = ({ link, deleteLink, refreshLike }) => {
     }
   };
 
-  const like = async (id) => {
+  const handleLike = async (id) => {
     try {
-      await likeService({ id, token });
+      const data = await likeService({ id, token });
       if (refreshLike) {
-        refreshLike(id);
+        refreshLike(data);
       }
     } catch (error) {
       setError(error.message);
@@ -36,17 +37,22 @@ export const Links = ({ link, deleteLink, refreshLike }) => {
   return (
     <article>
       {/* imagen del usuario */}
-      <h2>{link.titulo}</h2>
+      <Link to={`/link/${link.id}`}>
+        <h2>{link.titulo}</h2>
+      </Link>
       {<LinkPreview url={link.url} width="20rem" />}
       <a href={link.url}>{link.url}</a>
       <p>{link.descripcion}</p>
       <p>Likes {link.votes}</p>
-      <p>Created at {new Date(link.created_at).toLocaleString()}</p>
+      <p>
+        Created at {new Date(link.created_at).toLocaleString()} by{" "}
+        <Link to={`/user/${link.user_id}`}> {link.userName}</Link>
+      </p>
       {user && (
         <section>
           <button
             onClick={() => {
-              like(link.id);
+              handleLike(link.id);
             }}
           >
             Like
