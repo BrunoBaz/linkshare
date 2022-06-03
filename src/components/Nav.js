@@ -1,14 +1,13 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import avatarDefault from "../assets/img/avatar-default.svg";
 import "./Nav.css";
 
 export const Nav = () => {
   const { user, logout } = useContext(AuthContext);
   return user ? (
     <nav>
-      <div className="menu-links">
+      <div className="user-menu">
         <div>
           <img
             src={`${process.env.REACT_APP_BACKEND}/avatar/${user.imagen}`}
@@ -16,9 +15,9 @@ export const Nav = () => {
             className="avatar"
           />
         </div>
-        <a className="my-user-name">{user.userName}</a>
+        <p className="nombre-usuario-nav">{user.userName}</p>
         <Link to={`/user/${user.id}`} className="link-menu">
-          Ver perfil
+          <p className="ver-perfil-nav">Ver perfil</p>
         </Link>
         <button onClick={() => logout()} className="boton-logout">
           Cerrar sesión
@@ -27,7 +26,7 @@ export const Nav = () => {
     </nav>
   ) : (
     <nav>
-      <div className="menu-links">
+      <div className="user-menu">
         <li>
           <Link to="/register" className="link-menu">
             Register
