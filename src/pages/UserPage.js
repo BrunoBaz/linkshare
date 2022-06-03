@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+
 export const UserPage = () => {
-  return <p>Estás en el perfil del usuario</p>;
+  const { user, token } = useContext(AuthContext);
+  return;
 };
