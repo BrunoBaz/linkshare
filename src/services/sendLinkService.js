@@ -1,5 +1,4 @@
 export const sendLinkService = async ({ data, token }) => {
-  console.log(token);
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/link`, {
     method: "POST",
     body: data,
