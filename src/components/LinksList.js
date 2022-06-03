@@ -1,11 +1,15 @@
 import { Links } from "./Links";
 
-export const LinksList = ({ links, deleteLink }) => {
+export const LinksList = ({ links, deleteLink, refreshLike }) => {
   return links.length ? (
     <ul>
       {links.map((link) => (
         <li key={link.id}>
-          <Links link={link} deleteLink={deleteLink} />
+          <Links
+            link={link}
+            deleteLink={deleteLink}
+            refreshLike={refreshLike}
+          />
         </li>
       ))}
     </ul>

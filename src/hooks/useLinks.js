@@ -20,11 +20,12 @@ export const useLinks = () => {
     };
     loadLinks();
   }, []);
+
   const addLink = (data) => {
     setLinks([data, ...links]);
   };
-  const refreshLike = (like) => {
-    setLinks([like, ...links]);
+  const refreshLike = (data) => {
+    setLinks([...data]);
   };
   const deleteLink = (id) => {
     setLinks(links.filter((link) => link.id !== id));

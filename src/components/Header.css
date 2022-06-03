@@ -88,6 +88,7 @@ button.avatar-header {
   border-color: #14b5bf;
   background-color: #13a8b300;
   z-index: 1;
+
   border-radius: 50px;
   width: 50px;
   height: 50px;
@@ -212,6 +213,7 @@ button.link-header:hover {
   animation-duration: 0.5s;
   animation-fill-mode: both;
   animation-name: cerrar;
+
 }
 @keyframes cerrar {
   0% {
