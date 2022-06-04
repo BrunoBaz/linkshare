@@ -6,6 +6,8 @@ import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { LinkPage } from "./pages/LinkPage";
+import { UserPage } from "./pages/UserPage";
 
 function App() {
   return (
@@ -15,8 +17,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/user/:id" element={<p>Estamos en el perfil usuario</p>} />
-        <Route path="/link/:id" element={<p>Estamos en el link con id ?</p>} />
+        <Route path="/user/:id" element={<UserPage />} />
+        <Route path="/link/:id" element={<LinkPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

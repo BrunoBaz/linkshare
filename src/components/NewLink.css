@@ -1,0 +1,113 @@
+.menu-añadir-link {
+  color: rgb(2, 2, 3);
+  list-style: none;
+  text-decoration: none;
+}
+
+.newlink-menu {
+  background-color: #bdf1f4;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 90vw;
+  height: 90vh;
+  border-radius: 1rem;
+  filter: drop-shadow(1rem 1rem 5rem rgba(0, 0, 0, 0.25));
+}
+
+.boton-enviar {
+  color: #bdf1f4;
+  background-color: #14b5bf;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  border-style: none;
+  border-radius: 1rem;
+  font-weight: 400;
+  width: 8rem;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  box-shadow: 0rem 0rem 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+.boton-enviar:hover {
+  color: #14b5bf;
+  background-color: #ffffff;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  border-style: none;
+  border-radius: 1rem;
+  font-weight: 400;
+  width: 8rem;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  box-shadow: inset 0rem 0rem 0.1rem rgba(0, 0, 0, 0.25);
+}
+
+/*formulario*/
+
+.formulario-publicar-link {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-style: none;
+}
+
+.nuevo-enlace {
+  margin-top: 60px;
+  color: #14b5bf;
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+}
+
+.texto-formulario-añadir-link {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #14b5bf;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+input {
+  padding-left: 1rem;
+  font-family: "Nunito";
+  width: 98%;
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  color: #0f5055;
+  background-color: #ffffff;
+  border-style: none;
+  box-shadow: inset 0rem 0rem 0.2rem rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+input:focus {
+  padding-left: 1rem;
+  font-family: "Nunito";
+  width: 98%;
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  color: #0f5055;
+  background-color: #ffffff;
+  border-style: none;
+  border: 2px solid #14b5bf;
+  box-shadow: inset 0rem 0rem 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+textarea {
+  padding: 0.2rem 1rem;
+  font-family: "Nunito";
+  width: 98%;
+  height: 6rem;
+  border-radius: 0.5rem;
+  color: #0f5055;
+  background-color: #ffffff;
+  border-style: none;
+  box-shadow: inset 0rem 0rem 0.2rem rgba(0, 0, 0, 0.25);
+  outline: none;
+  resize: none;
+}
