@@ -26,41 +26,46 @@ export const NewLink = ({ addLink }) => {
   return (
     <addLink>
       <form onSubmit={handleForm} className="newlink-menu">
-        <h1 className="nuevo-enlace">Nuevo enlace</h1>
         <fieldset className="formulario-publicar-link">
-          <label htmlFor="titulo"></label>
-          <h2 className="texto-formulario-añadir-link">1-.Añade un título</h2>
-          <input
-            type="text"
-            id="titulo"
-            name="titulo"
-            required
-            placeholder='"Un sitio para compartir enlaces"*'
-          />
+          <h1 className="nuevo-enlace">Nuevo enlace</h1>
+          <label htmlFor="titulo">
+            <h2 className="texto-formulario-añadir-link">1-.Añade un título</h2>
+            <input
+              type="text"
+              id="titulo"
+              name="titulo"
+              required
+              placeholder='"Un sitio para compartir enlaces"*'
+              maxLength="30"
+            />
+          </label>
 
-          <label htmlFor="url"></label>
-          <h2 className="texto-formulario-añadir-link">
-            2-.¿Cúal es enlace que quieres compartir?
-          </h2>
-          <input
-            type="url"
-            id="url"
-            name="url"
-            required
-            placeholder='"www.linkshare.com"*'
-          />
+          <label htmlFor="url">
+            <h2 className="texto-formulario-añadir-link">
+              2-.¿Cúal es enlace que quieres compartir?
+            </h2>
+            <input
+              type="url"
+              id="url"
+              name="url"
+              required
+              placeholder='"www.linkshare.com"*'
+            />
+          </label>
 
-          <label htmlFor="descripcion"></label>
-          <h2 className="texto-formulario-añadir-link">
-            3-.¿Para que sirve este enlace?
-          </h2>
-          <textarea
-            type="text"
-            id="descripcion"
-            name="descripcion"
-            required
-            placeholder='"Es una plataforma para compartir enlaces de interes"*'
-          />
+          <label htmlFor="descripcion">
+            <h2 className="texto-formulario-añadir-link">
+              3-.¿Para que sirve este enlace?
+            </h2>
+            <textarea
+              type="text"
+              id="descripcion"
+              name="descripcion"
+              required
+              placeholder='"Es una plataforma para compartir enlaces de interes"*'
+              maxLength="280"
+            />
+          </label>
 
           <button type="submit" className="boton-enviar">
             Publicar

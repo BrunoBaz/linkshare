@@ -6,22 +6,25 @@
 
 .newlink-menu {
   background-color: #bdf1f4;
-
+  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  justify-content: center;
   width: 90vw;
   height: 90vh;
   border-radius: 1rem;
   filter: drop-shadow(1rem 1rem 5rem rgba(0, 0, 0, 0.25));
+  padding: 0px;
+  margin: 0px;
 }
 
 .boton-enviar {
   color: #bdf1f4;
   background-color: #14b5bf;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   border-style: none;
   border-radius: 1rem;
   font-weight: 400;
@@ -34,8 +37,8 @@
 .boton-enviar:hover {
   color: #14b5bf;
   background-color: #ffffff;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   border-style: none;
   border-radius: 1rem;
   font-weight: 400;
@@ -48,15 +51,20 @@
 /*formulario*/
 
 .formulario-publicar-link {
-  width: 70vw;
+  width: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   border-style: none;
+  padding: 0px;
+  margin: 0px;
+  justify-content: space-around;
 }
 
 .nuevo-enlace {
-  margin-top: 60px;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
   color: #14b5bf;
   font-weight: 600;
   font-size: 1.8rem;
@@ -73,9 +81,9 @@
 }
 
 input {
-  padding-left: 1rem;
+  padding: 0.2rem 0.5rem;
   font-family: "Nunito";
-  width: 98%;
+  width: 95%;
   height: 1.5rem;
   border-radius: 0.5rem;
   color: #0f5055;
@@ -86,9 +94,9 @@ input {
 }
 
 input:focus {
-  padding-left: 1rem;
+  padding: 0.2rem 0.5rem;
   font-family: "Nunito";
-  width: 98%;
+  width: 95%;
   height: 1.5rem;
   border-radius: 0.5rem;
   color: #0f5055;
@@ -99,9 +107,9 @@ input:focus {
 }
 
 textarea {
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 0.5rem;
   font-family: "Nunito";
-  width: 98%;
+  width: 95%;
   height: 6rem;
   border-radius: 0.5rem;
   color: #0f5055;
@@ -110,4 +118,14 @@ textarea {
   box-shadow: inset 0rem 0rem 0.2rem rgba(0, 0, 0, 0.25);
   outline: none;
   resize: none;
+}
+
+textarea:focus {
+  border: 2px solid #14b5bf;
+}
+
+label {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
 }
