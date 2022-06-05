@@ -1,0 +1,108 @@
+article {
+  display: flex;
+  padding: 1rem;
+  background-color: aliceblue;
+  filter: drop-shadow(1px 1px 5px #14b4bf5b);
+  border-radius: 2rem;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 30px;
+  justify-content: space-evenly;
+}
+
+.titulo-link {
+  color: #14b5bf;
+  font-weight: 800;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  text-decoration: none;
+}
+a {
+  margin-left: 0.1rem;
+  flex-direction: row;
+  color: #497a7e;
+  font-weight: 400;
+  font-size: 1rem;
+  text-decoration: none;
+}
+.autoria-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.Container {
+  text-align: left;
+  background-color: #14b5bf;
+  display: flex;
+  flex-direction: column;
+  border-radius: 7px;
+  border: 1px solid #ccc;
+  color: black;
+  transition: 0.3s all ease;
+  height: fit-content;
+
+  border-color: rgb(204, 204, 204);
+}
+
+.Image {
+  width: 100%;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 30vh;
+}
+
+.opciones-link {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.votos {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.creacion {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.icono-opciones {
+  width: 2.5rem;
+  cursor: pointer;
+}
+
+.icono-opciones:hover {
+  width: 3rem;
+  cursor: pointer;
+}
+
+.boton-opciones {
+  border-style: none;
+  background-color: #13a8b300;
+}
+
+.fecha-publicacion {
+  flex-direction: row;
+  color: #14b5bf;
+  font-weight: 100;
+  font-size: 0.8rem;
+}
+
+.likes {
+  flex-direction: row;
+  color: #14b5bf;
+  font-weight: 400;
+  font-size: 1rem;
+}

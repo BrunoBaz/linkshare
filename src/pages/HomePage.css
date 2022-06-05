@@ -1,0 +1,12 @@
+.body-home {
+  display: flex;
+  padding-top: 3.5rem;
+
+  background-color: rgb(255, 255, 255);
+  height: 88.5%;
+  align-items: stretch;
+  justify-content: center;
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.25));
+  overflow: auto;
+  align-content: space-around;
+}
