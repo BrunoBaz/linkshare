@@ -123,49 +123,44 @@ export const Header = () => {
           </button>
         </Link>
 
-        <Link to="/login" className="goHome">
-          <button className="goHome">
-            <img
-              src={addNewLink}
-              alt="logo Linkshare"
-              className="icono-link-menu"
-            />
-          </button>
-        </Link>
-
-        <div className="menu-user">
-          <div className={mostrarNav ? "hide-element" : null}>
-            {mostrarNav ? (
-              <div className="nav-contain">
+        <div className="menu-añadir-link">
+          <div className={mostrarAddLink ? "hide-element" : null}>
+            {mostrarAddLink ? (
+              <div className="newlink-contain">
                 {" "}
-                <Nav />
+                <NewLink addLink={addLink} />
               </div>
             ) : (
-              <div className="nav-contain">
+              <div className="newlink-contain">
                 {" "}
-                <Nav />
+                <NewLink addLink={addLink} />
               </div>
             )}
           </div>
           <button
-            onClick={() => setMostrarNav(!mostrarNav)}
-            className="avatar-header"
+            onClick={() => setMostrarAddLink(!mostrarAddLink)}
+            className="link-header"
           >
-            {mostrarNav ? (
+            {mostrarAddLink ? (
               <img
-                src={conectar}
+                src={addNewLink}
                 alt="logo Linkshare"
-                className="avatar-menu"
+                className="icono-link-menu"
               />
             ) : (
               <img
-                src={cerrarMenu}
+                src={addNewLinkCerrar}
                 alt="logo Linkshare"
-                className="avatar-menu"
+                className="icono-link-menu"
               />
             )}
           </button>
         </div>
+        <Link to="/login" className="goLogin">
+          <button className="avatar-header">
+            <img src={conectar} alt="logo Linkshare" className="avatar-menu" />
+          </button>
+        </Link>
       </div>
     </header>
   );

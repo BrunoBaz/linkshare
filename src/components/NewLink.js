@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { sendLinkService } from "../services/sendLinkService";
+import { Link } from "react-router-dom";
 import "./NewLink.css";
 
 export const NewLink = ({ addLink }) => {
   const { token } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
-
+  const { user } = useContext(AuthContext);
   const handleForm = async (e) => {
     e.preventDefault();
     try {
@@ -23,7 +24,7 @@ export const NewLink = ({ addLink }) => {
     }
   };
 
-  return (
+  return user ? (
     <addLink>
       <form onSubmit={handleForm} className="newlink-menu">
         <fieldset className="formulario-publicar-link">
@@ -74,6 +75,24 @@ export const NewLink = ({ addLink }) => {
         {sending ? <p>Sending post</p> : null}
         {error ? <p>{error}</p> : null}
       </form>
+    </addLink>
+  ) : (
+    <addLink>
+      <section className="newlink-menu">
+        <h2 className="texto-formulario-añadir-link">
+          Debes iniciar sesión para poder compartir un enlace
+        </h2>
+        <Link to="/login" className="goLogin">
+          <button type="submit" className="boton-para-loguearse">
+            iniciar sesión
+          </button>
+        </Link>
+        <Link to="/register" className="goregister">
+          <button type="submit" className="boton-para-loguearse">
+            registarse
+          </button>
+        </Link>
+      </section>
     </addLink>
   );
 };
