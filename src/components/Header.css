@@ -110,36 +110,77 @@ button.avatar-header:hover {
   cursor: pointer;
 }
 
-.nav-contain {
+.show-element .nav-contain {
   visibility: visible;
   position: relative;
-  top: 115px;
-  right: -37px;
+  z-index: 1;
+  overflow: hidden;
   animation-duration: 0.5s;
   animation-fill-mode: both;
-  animation-name: cerrar;
-  z-index: 1;
+  animation-name: abrir-usuario;
+  padding: 2.5rem;
+  width: 10rem;
+  height: 10rem;
+  top: 115px;
+  right: -92px;
 }
-@keyframes cerrar {
+@keyframes abrir-usuario {
   0% {
+    opacity: 0;
+    padding: 0rem;
+    width: 0px;
+    height: 0px;
+    top: -7px;
+    right: -20px;
+  }
+  50% {
+    border-radius: 30%;
     opacity: 0;
   }
   100% {
     opacity: 1;
+    padding: 2.5rem;
+    width: 10rem;
+    height: 10rem;
+    top: 115px;
+    right: -92px;
   }
 }
 
 .hide-element .nav-contain {
+  visibility: visible;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
   animation-duration: 0.5s;
   animation-fill-mode: both;
-  animation-name: abrir;
+  animation-name: cerrar-usuario;
+  padding: 2.5rem;
+  width: 10rem;
+  height: 10rem;
+  top: 115px;
+  right: -92px;
 }
-@keyframes abrir {
+@keyframes cerrar-usuario {
   0% {
     opacity: 1;
+    padding: 2.5rem;
+    width: 10rem;
+    height: 10rem;
+    top: 115px;
+    right: -92px;
+  }
+  50% {
+    border-radius: 30%;
+    opacity: 0;
   }
   100% {
     opacity: 0;
+    padding: 0rem;
+    width: 0px;
+    height: 0px;
+    top: -7px;
+    right: -20px;
   }
 }
 
@@ -200,40 +241,81 @@ button.link-header:hover {
 }
 
 .newlink-contain {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #0c292b3f;
-  width: 100vw;
-  height: 100vh;
   visibility: visible;
   position: fixed;
-  top: 0px;
-  right: 0px;
   animation-duration: 0.5s;
   animation-fill-mode: both;
-  animation-name: cerrar;
-
+  animation-name: abrir-newlink;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  right: 0px;
 }
-@keyframes cerrar {
+@keyframes abrir-newlink {
   0% {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    top: 22px;
+    right: 187px;
+    border-radius: 100%;
+  }
+  50% {
+    border-radius: 10%;
     opacity: 0;
   }
   100% {
     opacity: 1;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    right: 0px;
   }
 }
 
 .hide-element .newlink-contain {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0c292b3f;
+  visibility: visible;
+  position: fixed;
   animation-duration: 0.5s;
   animation-fill-mode: both;
-  animation-name: abrir;
+  animation-name: cerrar-newlink;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  right: 0px;
 }
-@keyframes abrir {
+@keyframes cerrar-newlink {
   0% {
     opacity: 1;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    right: 0px;
   }
+
+  50% {
+    border-radius: 10%;
+    opacity: 0;
+  }
+
   100% {
     opacity: 0;
+    width: 0px;
+    height: 0px;
+    top: 22px;
+    right: 187px;
+    border-radius: 100%;
   }
 }
