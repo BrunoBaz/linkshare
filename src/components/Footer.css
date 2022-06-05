@@ -1,10 +1,11 @@
 footer {
+  display: flex;
   font-weight: 700;
   font-size: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  height: 100%;
   color: #14b5bf;
   background-color: #bdf1f4;
   text-align: center;
-  align-content: center;
+  align-items: center;
+  justify-content: center;
 }

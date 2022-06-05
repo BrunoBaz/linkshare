@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { deleteLinkService } from "../services/deleteLinkService";
 import { likeService } from "../services/likeService";
+import avatarDefault from "../assets/img/avatar-default.svg";
+import iconoLike from "../assets/img/icono-like.svg";
+import iconoBorrar from "../assets/img/icono-papelera.svg";
+import "./Links.css";
 
 export const Links = ({ link, deleteLink, refreshLike }) => {
   const { user, token } = useContext(AuthContext);
@@ -37,40 +41,70 @@ export const Links = ({ link, deleteLink, refreshLike }) => {
   return (
     <article>
       {/* imagen del usuario */}
-      <Link to={`/link/${link.id}`}>
+      <section className="autoria-link">
+        <img src={avatarDefault} alt="logo Linkshare" className="avatar-menu" />
+        <p>
+          {" "}
+          <Link to={`/user/${link.user_id}`}> {link.userName}</Link>
+        </p>
+      </section>
+      <Link to={`/link/${link.id}`} className="titulo-link">
         <h2>{link.titulo}</h2>
       </Link>
-      {<LinkPreview url={link.url} width="20rem" />}
       <a href={link.url}>{link.url}</a>
+
+      <LinkPreview
+        url={link.url}
+        width="100%"
+        height="40%"
+        backgroundColor="#14b5bf"
+      />
+
       <p>{link.descripcion}</p>
-      <p>Likes {link.votes}</p>
-      <p>
-        Created at {new Date(link.created_at).toLocaleString()} by{" "}
-        <Link to={`/user/${link.user_id}`}> {link.userName}</Link>
-      </p>
-      {user && (
-        <section>
-          <button
-            onClick={() => {
-              handleLike(link.id);
-            }}
-          >
-            Like
-          </button>
-          {error && <p>{error}</p>}
+
+      <section className="opciones-link">
+        <section className="votos">
+          {user && (
+            <section>
+              <button
+                className="boton-opciones"
+                onClick={() => {
+                  handleLike(link.id);
+                }}
+              >
+                <img
+                  src={iconoLike}
+                  alt="icono like"
+                  className="icono-opciones"
+                />
+              </button>
+              {error && <p>{error}</p>}
+            </section>
+          )}
+          <p className="likes">Likes {link.votes} </p>
         </section>
-      )}
-      {user && user.id === link.user_id ? (
-        <section>
-          <button
-            onClick={() => {
-              if (window.confirm("Are you sure?")) removeLink(link.id);
-            }}
-          >
-            Delete link
-          </button>
+        <section className="creacion">
+          {user && user.id === link.user_id ? (
+            <section>
+              <button
+                className="boton-opciones"
+                onClick={() => {
+                  if (window.confirm("Are you sure?")) removeLink(link.id);
+                }}
+              >
+                <img
+                  src={iconoBorrar}
+                  alt="icono borar"
+                  className="icono-opciones"
+                />
+              </button>
+            </section>
+          ) : null}
+          <p className="fecha-publicacion">
+            Publicado · {new Date(link.created_at).toLocaleString()}
+          </p>
         </section>
-      ) : null}
+      </section>
     </article>
   );
 };
