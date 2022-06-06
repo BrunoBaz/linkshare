@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUserService } from "../services/registerUserService";
+import "./LoginRegisterPage.css";
+import { Link } from "react-router-dom";
 
 export const RegisterPage = () => {
   const [userName, setUserName] = useState("");
@@ -28,47 +30,62 @@ export const RegisterPage = () => {
   };
 
   return (
-    <section>
-      <h1>Register</h1>
-      <form onSubmit={handleForm}>
-        <label htmlFor="userName">Usuario (Opcional) </label>
-        <input
-          type="text"
-          id="userName"
-          name="userName"
-          onChange={(e) => setUserName(e.target.value)}
-        />
-        <br />
-        <label htmlFor="name">Nombre</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          required
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <button>Register</button>
-        {error ? <p>{error}</p> : null}
-      </form>
+    <section className="body-login">
+      <section className="form-login">
+        <h1>Registrase</h1>
+        <form onSubmit={handleForm}>
+          <label htmlFor="userName">
+            Usuario (Opcional)
+            <input
+              type="text"
+              id="userName"
+              name="userName"
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </label>
+          <br />
+          <label htmlFor="name">
+            Nombre
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              onChange={(e) => setName(e.target.value)}
+            />
+          </label>
+          <br />
+          <label htmlFor="email">
+            Email
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <br />
+          <label htmlFor="password">
+            Password
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <br />
+          {error ? <p>{error}</p> : null}
+          <section className="opciones-login">
+            <button className="boton-para-loguearse">registrarse</button>
+            <Link to="/login" className="register/login">
+              ← iniciar sesión
+            </Link>
+          </section>
+        </form>
+      </section>
     </section>
   );
 };

@@ -1,0 +1,14 @@
+.body-notfound {
+  display: flex;
+  padding-top: 3.5rem;
+  background-color: #bdf1f4;
+  height: 88.5%;
+  align-items: center;
+  overflow: auto;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.image-notfound {
+  width: 70%;
+}

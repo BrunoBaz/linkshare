@@ -1,0 +1,53 @@
+.body-login {
+  display: flex;
+  padding-top: 3.5rem;
+
+  background-color: #14b5bf;
+  height: 88.5%;
+  align-items: stretch;
+  justify-content: center;
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.25));
+  overflow: auto;
+  align-content: space-around;
+}
+.form-login {
+  display: flex;
+  padding: 3rem;
+  background-color: aliceblue;
+  filter: drop-shadow(1px 1px 5px #0000005b);
+  border-radius: 2rem;
+  flex-direction: column;
+  align-items: center;
+  margin: 6rem;
+  justify-content: center;
+}
+.opciones-login {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-login {
+  border-style: none;
+}
+
+#email {
+  background-color: #bdf1f4;
+}
+
+#pass {
+  background-color: #bdf1f4;
+}
+
+#password {
+  background-color: #bdf1f4;
+}
+
+#name {
+  background-color: #bdf1f4;
+}
+
+#userName {
+  background-color: #bdf1f4;
+}
