@@ -21,14 +21,15 @@ export const useLinks = () => {
     loadLinks();
   }, []);
 
-  const addLink = (data) => {
-    setLinks([data, ...links]);
-  };
   const refreshLike = (data) => {
     setLinks([...data]);
   };
   const deleteLink = (id) => {
     setLinks(links.filter((link) => link.id !== id));
   };
+  const addLink = (data) => {
+    setLinks([data, ...links]);
+  };
+
   return { links, loading, error, addLink, deleteLink, refreshLike };
 };

@@ -14,11 +14,10 @@ import cerrarMenu from "../assets/img/menu-cerrar.svg";
 import conectar from "../assets/img/conectar.svg";
 import "./Header.css";
 
-export const Header = () => {
+export const Header = ({ addLink }) => {
   const [mostrarNav, setMostrarNav] = useState(true);
   const [mostrarAddLink, setMostrarAddLink] = useState(true);
   const { user } = useContext(AuthContext);
-  const { addLink } = useLinks();
 
   return user ? (
     <header id="header" className="header">
@@ -42,17 +41,28 @@ export const Header = () => {
             {mostrarAddLink ? (
               <div className="newlink-contain">
                 {" "}
-                <NewLink addLink={addLink} />
+                <NewLink
+                  addLink={addLink}
+                  setMostrarAddLink={setMostrarAddLink}
+                  mostrarAddLink={mostrarAddLink}
+                />
               </div>
             ) : (
               <div className="newlink-contain">
                 {" "}
-                <NewLink addLink={addLink} />
+                <NewLink
+                  addLink={addLink}
+                  setMostrarAddLink={setMostrarAddLink}
+                  mostrarAddLink={mostrarAddLink}
+                />
               </div>
             )}
           </div>
           <button
-            onClick={() => setMostrarAddLink(!mostrarAddLink)}
+            onClick={() => {
+              setMostrarAddLink(!mostrarAddLink);
+              setMostrarNav(true);
+            }}
             className="link-header"
           >
             {mostrarAddLink ? (
@@ -86,7 +96,10 @@ export const Header = () => {
             )}
           </div>
           <button
-            onClick={() => setMostrarNav(!mostrarNav)}
+            onClick={() => {
+              setMostrarAddLink(true);
+              setMostrarNav(!mostrarNav);
+            }}
             className="avatar-header"
           >
             {mostrarNav ? (
@@ -138,7 +151,10 @@ export const Header = () => {
             )}
           </div>
           <button
-            onClick={() => setMostrarAddLink(!mostrarAddLink)}
+            onClick={() => {
+              setMostrarAddLink(!mostrarAddLink);
+              setMostrarNav(true);
+            }}
             className="link-header"
           >
             {mostrarAddLink ? (
