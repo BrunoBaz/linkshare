@@ -1,8 +1,4 @@
-export const followUserService = async ({ userId, id, token }) => {
-  console.log("id", id);
-  console.log(userId);
-  console.log("token", token);
-
+export const followUserService = async ({ id, token }) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/user/${id}/follow`,
     {

@@ -3,6 +3,7 @@ import { logInUserService } from "../services/loginUserService";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./LoginRegisterPage.css";
+import { UserLinks } from "../components/UserLinks";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export const LoginPage = () => {
     <section className="body-login">
       <section className="form-login">
         <h1>Iniciar sesión</h1>
-        <form onSubmit={handleForm} className>
+        <form onSubmit={handleForm}>
           <fieldset className="input-login">
             <label htmlFor="email">Email</label>
             <input
@@ -46,6 +47,7 @@ export const LoginPage = () => {
               name="pass"
               id="pass"
               value={password}
+              autoComplete="on"
               required
               onChange={(e) => setPassword(e.target.value)}
             />

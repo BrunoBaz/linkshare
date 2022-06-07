@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { getAllLinksService } from "../services/getAllLinksService";
+import { getLinksByUserId } from "../services/getLinksByUserId";
 
-export const useLinks = () => {
+export const useLinks = (id) => {
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -10,7 +11,10 @@ export const useLinks = () => {
     const loadLinks = async () => {
       try {
         setLoading(true);
-        const data = await getAllLinksService();
+
+        const data = id
+          ? await getLinksByUserId({ id })
+          : await getAllLinksService();
         setLinks(data);
       } catch (error) {
         setError(error.message);
@@ -19,7 +23,7 @@ export const useLinks = () => {
       }
     };
     loadLinks();
-  }, []);
+  }, [id]);
 
   const refreshLike = (data) => {
     setLinks([...data]);

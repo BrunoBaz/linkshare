@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { sendLinkService } from "../services/sendLinkService";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./NewLink.css";
 
 export const NewLink = ({ addLink, setMostrarAddLink, mostrarAddLink }) => {
@@ -9,6 +9,7 @@ export const NewLink = ({ addLink, setMostrarAddLink, mostrarAddLink }) => {
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleForm = async (e) => {
     e.preventDefault();
     try {
@@ -17,6 +18,7 @@ export const NewLink = ({ addLink, setMostrarAddLink, mostrarAddLink }) => {
       const post = await sendLinkService({ data, token });
       addLink(post);
       e.target.reset();
+      navigate("/");
     } catch (error) {
       setError(error.message);
     } finally {

@@ -19,7 +19,7 @@ export const useSingleLink = (id) => {
       }
     };
     loadLink();
-  }, []);
-  console.log(link);
+  }, [id]);
+
   return { link, loading, error };
 };
