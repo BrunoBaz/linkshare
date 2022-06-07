@@ -9,12 +9,10 @@ export const UserLinks = ({ id }) => {
   if (error) return <p>{error}</p>;
 
   return (
-    <section className="body-home">
-      <LinksList
-        links={links}
-        deleteLink={deleteLink}
-        refreshLike={refreshLike}
-      />
-    </section>
+    <LinksList
+      links={links}
+      deleteLink={deleteLink}
+      refreshLike={refreshLike}
+    />
   );
 };

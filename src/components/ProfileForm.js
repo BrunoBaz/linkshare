@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { modifyUserProfileService } from "../services/modifyUserProfileService";
+import "./ProfileForm.css";
 
 export const ProfileForm = ({ id, token, modifiedData }) => {
   const [imagen, setImage] = useState(null);
@@ -23,20 +24,20 @@ export const ProfileForm = ({ id, token, modifiedData }) => {
     }
   };
   return (
-    <form onSubmit={handleForm}>
-      <fieldset>
+    <form onSubmit={handleForm} className="form-edit-profile">
+      <fieldset className="input-edit">
         <label htmlFor="biografia">
           Biografia:
           <input type="text" id="biografia" name="biografia" />
         </label>
       </fieldset>
-      <fieldset>
+      <fieldset className="input-edit">
         <label htmlFor="telefono">
           Telefono:
           <input type="text" id="telefono" name="telefono" />
         </label>
       </fieldset>
-      <fieldset>
+      <fieldset className="input-edit">
         <label htmlFor="imagen">Cambiar imagen de perfil</label>
         <input
           type="file"
@@ -56,19 +57,20 @@ export const ProfileForm = ({ id, token, modifiedData }) => {
         ) : null}
       </fieldset>
 
-      <fieldset>
+      <fieldset className="input-edit">
         <label htmlFor="userName">
           Cambiar nombre usuario:
           <input type="text" id="userName" name="userName"></input>
         </label>
       </fieldset>
 
-      <fieldset>
+      <fieldset className="input-edit">
         <label htmlFor="email">
           Cambiar email :<input type="text" id="email" name="email"></input>
         </label>
       </fieldset>
-      <button>Submit</button>
+      <button className="boton-guardar">Submit</button>
+
       {error ? <p>{error}</p> : null}
       {loading ? <p>Cargando datos...</p> : null}
     </form>

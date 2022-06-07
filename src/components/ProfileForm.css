@@ -1,0 +1,52 @@
+.form-edit-profile {
+  display: flex;
+  padding: 1rem;
+  background-color: aliceblue;
+  filter: drop-shadow(1px 1px 5px #0000005b);
+  border-radius: 1rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-edit {
+  border-style: none;
+}
+
+#pass,
+#email,
+#password,
+#name,
+#userName,
+#biografia,
+#telefono,
+#imagen {
+  background-color: #bdf1f4;
+}
+
+.boton-guardar {
+  color: #bdf1f4;
+  background-color: #14b5bf;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-style: none;
+  border-radius: 1rem;
+  font-weight: 400;
+  width: 8rem;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  box-shadow: 0rem 0rem 0.2rem rgb(0 0 0 / 25%);
+}
+
+.boton-guardar:hover {
+  color: #14b5bf;
+  background-color: #bdf1f4;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-style: none;
+  border-radius: 1rem;
+  font-weight: 400;
+  width: 8rem;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  box-shadow: 0rem 0rem 0.2rem rgb(0 0 0 / 25%);
+}
