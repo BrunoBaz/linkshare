@@ -8,6 +8,7 @@ export const ProfileForm = ({ id, token, modifiedData }) => {
 
   const handleForm = async (e) => {
     e.preventDefault();
+    setError("");
     try {
       setLoading(true);
       const data = new FormData(e.target);
@@ -54,30 +55,20 @@ export const ProfileForm = ({ id, token, modifiedData }) => {
           </figure>
         ) : null}
       </fieldset>
-      <button>Submit</button>
-      <fieldset>
-        <label htmlFor="password">
-          Cambiar contraseña:
-          <input type="text" id="password" name="password"></input>
-        </label>
-      </fieldset>
+
       <fieldset>
         <label htmlFor="userName">
           Cambiar nombre usuario:
           <input type="text" id="userName" name="userName"></input>
         </label>
       </fieldset>
-      <fieldset>
-        <label htmlFor="nombre">
-          Cambiar nombre :<input type="text" id="nombre" name="nombre"></input>
-        </label>
-      </fieldset>
+
       <fieldset>
         <label htmlFor="email">
           Cambiar email :<input type="text" id="email" name="email"></input>
         </label>
       </fieldset>
-
+      <button>Submit</button>
       {error ? <p>{error}</p> : null}
       {loading ? <p>Cargando datos...</p> : null}
     </form>

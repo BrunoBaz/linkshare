@@ -86,12 +86,15 @@ export const Header = ({ addLink }) => {
             {mostrarNav ? (
               <div className="nav-contain">
                 {" "}
-                <Nav />
+                <Nav
+                  setMostrarAddLink={setMostrarAddLink}
+                  mostrarNav={mostrarNav}
+                />
               </div>
             ) : (
               <div className="nav-contain">
                 {" "}
-                <Nav />
+                <Nav setMostrarNav={setMostrarNav} mostrarNav={mostrarNav} />
               </div>
             )}
           </div>
@@ -141,12 +144,20 @@ export const Header = ({ addLink }) => {
             {mostrarAddLink ? (
               <div className="newlink-contain">
                 {" "}
-                <NewLink addLink={addLink} />
+                <NewLink
+                  addLink={addLink}
+                  setMostrarAddLink={setMostrarAddLink}
+                  mostrarAddLink={mostrarAddLink}
+                />
               </div>
             ) : (
               <div className="newlink-contain">
                 {" "}
-                <NewLink addLink={addLink} />
+                <NewLink
+                  addLink={addLink}
+                  setMostrarAddLink={setMostrarAddLink}
+                  mostrarAddLink={mostrarAddLink}
+                />
               </div>
             )}
           </div>

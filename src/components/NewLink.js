@@ -81,12 +81,22 @@ export const NewLink = ({ addLink, setMostrarAddLink, mostrarAddLink }) => {
         Debes iniciar sesión para poder compartir un enlace
       </h2>
       <Link to="/login" className="goLogin">
-        <button type="submit" className="boton-para-loguearse">
+        <button
+          className="boton-para-loguearse"
+          onClick={() => {
+            setMostrarAddLink(!mostrarAddLink);
+          }}
+        >
           iniciar sesión
         </button>
       </Link>
       <Link to="/register" className="goregister">
-        <button type="submit" className="boton-para-loguearse">
+        <button
+          className="boton-para-loguearse"
+          onClick={() => {
+            setMostrarAddLink(!mostrarAddLink);
+          }}
+        >
           registarse
         </button>
       </Link>

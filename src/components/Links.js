@@ -29,6 +29,7 @@ export const Links = ({ link, deleteLink, refreshLike }) => {
   };
 
   const handleLike = async (id) => {
+    setError("");
     try {
       const data = await likeService({ id, token });
       if (refreshLike) {

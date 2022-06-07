@@ -18,7 +18,6 @@ export const LoginPage = () => {
       const token = await logInUserService({ email, password });
 
       login(token);
-      console.log(token);
       navigate("/");
     } catch (error) {
       setError(error.message);
@@ -51,7 +50,6 @@ export const LoginPage = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </fieldset>
-
           {error ? <p>{error}</p> : null}
           <section className="opciones-login">
             <button className="boton-para-loguearse">entar</button>

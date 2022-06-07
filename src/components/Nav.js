@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./Nav.css";
 
-export const Nav = () => {
+export const Nav = ({ setMostrarNav, mostrarNav }) => {
   const { user, logout } = useContext(AuthContext);
   return user ? (
     <nav>
@@ -16,7 +16,13 @@ export const Nav = () => {
           />
         </div>
         <p className="nombre-usuario-nav">{user.userName}</p>
-        <Link to={`/user/${user.id}`} className="link-menu">
+        <Link
+          onClick={() => {
+            setMostrarNav(!mostrarNav);
+          }}
+          to={`/user/${user.id}`}
+          className="link-menu"
+        >
           <p className="ver-perfil-nav">Ver perfil</p>
         </Link>
         <button onClick={() => logout()} className="boton-logout">
@@ -28,12 +34,24 @@ export const Nav = () => {
     <nav>
       <div className="user-menu">
         <li>
-          <Link to="/register" className="link-menu">
+          <Link
+            onClick={() => {
+              setMostrarNav(!mostrarNav);
+            }}
+            to="/register"
+            className="link-menu"
+          >
             Register
           </Link>
         </li>
         <li>
-          <Link to="/login" className="link-menu">
+          <Link
+            onClick={() => {
+              setMostrarNav(!mostrarNav);
+            }}
+            to="/login"
+            className="link-menu"
+          >
             Login
           </Link>
         </li>
