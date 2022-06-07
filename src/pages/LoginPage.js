@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { logInUserService } from "../services/loginUserService";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 export const LoginPage = () => {
@@ -17,7 +17,6 @@ export const LoginPage = () => {
       const token = await logInUserService({ email, password });
 
       login(token);
-      console.log(token);
       navigate("/");
     } catch (error) {
       setError(error.message);
@@ -51,6 +50,9 @@ export const LoginPage = () => {
         </fieldset>
 
         <button>Login</button>
+        <Link to="/register">
+          <p>Registrarse</p>
+        </Link>
         {error ? <p>{error}</p> : null}
       </form>
     </section>
