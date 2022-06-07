@@ -1,0 +1,89 @@
+.body-userPage {
+  display: flex;
+  padding-top: 3.5rem;
+  background-color: rgb(255, 255, 255);
+  height: 88.5%;
+  align-items: stretch;
+  justify-content: flex-start;
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.25));
+  overflow: auto;
+  align-content: space-around;
+  flex-direction: column;
+}
+.header-userPage {
+  background-color: #bdf1f4;
+  padding: 1rem;
+  filter: drop-shadow(1px 1px 5px #14b4bfb6);
+}
+
+#perfil {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border-style: double;
+  border-color: black;
+  filter: drop-shadow(1px 1px 5px #0000005b);
+}
+
+.header-info {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.user-contact {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.biografia {
+  margin: 1rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+  border-radius: 0;
+  background-color: rgba(240, 248, 255, 0);
+}
+.icono-editar {
+  height: 100%;
+}
+
+.boton-editar {
+  background-color: rgba(0, 0, 255, 0);
+  width: 2rem;
+  height: 2rem;
+  border-style: none;
+}
+
+.user-edit {
+  display: flex;
+}
+.edicion-perfil {
+  margin: 1rem;
+  margin-top: 0;
+}
+
+.header-contador {
+  display: flex;
+  margin: 1rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+  border-radius: 0;
+  justify-content: space-around;
+}
+
+.line {
+  border-left-style: solid;
+  border-color: #14b4bf71;
+}
+
+h3 {
+  margin-bottom: 0px;
+}
+.contador {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  align-items: center;
+}

@@ -32,22 +32,10 @@
   border-style: none;
 }
 
-#email {
-  background-color: #bdf1f4;
-}
-
-#pass {
-  background-color: #bdf1f4;
-}
-
-#password {
-  background-color: #bdf1f4;
-}
-
-#name {
-  background-color: #bdf1f4;
-}
-
+#pass,
+#email,
+#password,
+#name,
 #userName {
   background-color: #bdf1f4;
 }
