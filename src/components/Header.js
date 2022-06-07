@@ -4,7 +4,6 @@ import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { Nav } from "./Nav";
 import { NewLink } from "../components/NewLink";
-import { useLinks } from "../hooks/useLinks";
 import logo from "../assets/img/logo.svg";
 import addNewLink from "../assets/img/new-link.svg";
 import addNewLinkCerrar from "../assets/img/new-link-cerrar.svg";
@@ -21,13 +20,25 @@ export const Header = ({ addLink }) => {
 
   return user ? (
     <header id="header" className="header">
-      <Link to="/">
+      <Link
+        to="/"
+        onClick={() => {
+          setMostrarAddLink(true);
+          setMostrarNav(true);
+        }}
+      >
         <img src={logo} alt="logo Linkshare" className="logo-menu" />
       </Link>
 
       <div className="menu-header">
         <Link to="/" className="goHome">
-          <button className="goHome">
+          <button
+            className="goHome"
+            onClick={() => {
+              setMostrarAddLink(true);
+              setMostrarNav(true);
+            }}
+          >
             <img
               src={goHome}
               alt="logo Linkshare"

@@ -12,6 +12,7 @@ export const useFollowUser = async () => {
         setLoading(true);
         const data = await followUserService();
         setUserData(data);
+        console.log(data);
       } catch (error) {
         setError(error.message);
       } finally {

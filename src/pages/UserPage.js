@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProfileForm } from "../components/ProfileForm";
+import { UserLinks } from "../components/UserLinks";
 import { AuthContext } from "../context/AuthContext";
 import { useUsersData } from "../hooks/useUsersData";
 import { followUserService } from "../services/followUserService";
-import { modifyUserProfileService } from "../services/modifyUserProfileService";
 
 export const UserPage = () => {
   const { id } = useParams();
@@ -13,16 +13,19 @@ export const UserPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [profile, setProfile] = useState(false);
-  const userId = user && user.id;
+  const ide = 1;
   const handleFollow = async (e) => {
     e.preventDefault();
     try {
-      const data = await followUserService({ id, userId, token });
-      console.log(data);
+      setLoading(true);
+      await followUserService({ id, token });
     } catch (error) {
       setError(error.message);
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
     userData && (
       <section>
@@ -50,9 +53,13 @@ export const UserPage = () => {
         {user && user.id === userData.id && (
           <button onClick={() => setProfile(!profile)}>Editar perfil</button>
         )}
+
         {profile && (
           <ProfileForm id={user.id} token={token} modifiedData={modifiedData} />
         )}
+        <UserLinks id={id} />
+        {error && <p>{error}</p>}
+        {loading && <p>Cargando...</p>}
       </section>
     )
   );

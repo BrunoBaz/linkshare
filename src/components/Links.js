@@ -13,7 +13,6 @@ import "./Links.css";
 export const Links = ({ link, deleteLink, refreshLike }) => {
   const { user, token } = useContext(AuthContext);
   const [error, setError] = useState("");
-
   const navigate = useNavigate();
   const removeLink = async (id) => {
     try {
