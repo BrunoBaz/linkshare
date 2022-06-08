@@ -11,7 +11,7 @@ export const useLinks = (id) => {
     const loadLinks = async () => {
       try {
         setLoading(true);
-
+        console.log(id);
         const data = id
           ? await getLinksByUserId({ id })
           : await getAllLinksService();

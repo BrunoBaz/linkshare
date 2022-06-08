@@ -13,6 +13,7 @@ export const UserLinks = ({ id, refreshLikesInUserPage }) => {
       links={links}
       deleteLink={deleteLink}
       refreshLike={refreshLike}
+      userId={id}
       refreshLikesInUserPage={refreshLikesInUserPage}
     />
   );
