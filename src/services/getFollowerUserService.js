@@ -1,6 +1,6 @@
-export const getLinksByUserId = async ({ id }) => {
+export const getFollowerUserService = async (id) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/link/votes/${id}`
+    `${process.env.REACT_APP_BACKEND}/user/${id}/follower`
   );
   const json = await response.json();
   if (!response.ok) {

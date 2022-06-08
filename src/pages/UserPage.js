@@ -1,26 +1,31 @@
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ProfileForm } from "../components/ProfileForm";
 import { UserLinks } from "../components/UserLinks";
 import { AuthContext } from "../context/AuthContext";
 import { useUsersData } from "../hooks/useUsersData";
-import { followUserService } from "../services/followUserService";
+
 import iconoEditar from "../assets/img/icono-editar.svg";
 import "./UserPage.css";
+import { createFollowUserService } from "../services/createFollowUserService";
+import { useFollowSystem } from "../hooks/useFollowSystem";
 
 export const UserPage = () => {
   const { id } = useParams();
-  const { userData, modifiedData } = useUsersData(id);
+  const { userData, allLikes, modifiedData, refreshLikesInUserPage } =
+    useUsersData(id);
   const { user, token } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
+  const { follow, follower, refreshFollow } = useFollowSystem(id);
   const [error, setError] = useState("");
   const [profile, setProfile] = useState(false);
-  const ide = 1;
+
   const handleFollow = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
-      await followUserService({ id, token });
+      const data = await createFollowUserService({ id, token });
+      refreshFollow(data);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -83,19 +88,29 @@ export const UserPage = () => {
           </section>
           <section className="header-contador">
             <section className="contador">
-              <h3>000</h3>likes
+              <h3>{allLikes.likes}</h3>
+              <p>likes</p>
             </section>
+
+            <div className="line"></div>
+
+            <section className="contador">
+              <h3>{follow.length}</h3>
+              <p>siguiendo</p>
+            </section>
+
             <div className="line"></div>
             <section className="contador">
-              <h3>000</h3>seguidores
-            </section>
-            <div className="line"></div>
-            <section className="contador">
-              <h3>000</h3>seguidos
+              <h3>{follower.length}</h3>
+              <p>Me siguen</p>
             </section>
           </section>
         </section>
-        <UserLinks id={id} className="body-userPage" />
+        <UserLinks
+          id={id}
+          className="body-userPage"
+          refreshLikesInUserPage={refreshLikesInUserPage}
+        />
         {error && <p>{error}</p>}
         {/*{loading && <p>Cargando...</p>}*/}
       </section>
