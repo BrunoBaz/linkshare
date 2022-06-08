@@ -1,4 +1,4 @@
-export const likeService = async ({ id, token }) => {
+export const likeInUserService = async ({ id, token }) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/link/${id}/votes`,
     {
@@ -12,5 +12,6 @@ export const likeService = async ({ id, token }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
+  console.log(json.data);
   return json.data;
 };

@@ -1,19 +1,22 @@
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { deleteLinkService } from "../services/deleteLinkService";
-import { likeService } from "../services/likeService";
+import { likeInUserService, likeService } from "../services/likeInUserService";
 import avatarDefault from "../assets/img/avatar-default.svg";
 import iconoLike from "../assets/img/icono-like.svg";
 import iconoBorrar from "../assets/img/icono-papelera.svg";
 import "./Links.css";
 
+import { getLinksByUserId } from "../services/getLinksByUserId";
+
 export const Links = ({
   link,
   deleteLink,
   refreshLike,
+  userId,
   refreshLikesInUserPage,
 }) => {
   const { user, token } = useContext(AuthContext);
@@ -35,10 +38,17 @@ export const Links = ({
   const handleLike = async (id) => {
     setError("");
     try {
-      const data = await likeService({ id, token });
-      if (refreshLike) {
+      if (userId) {
+        await likeInUserService({ id, token });
+        console.log(userId);
+        const data = await getLinksByUserId({ userId });
+        console.log(data);
         refreshLike(data);
-        refreshLikesInUserPage(data);
+        refreshLikesInUserPage(userId);
+      } else {
+        const data = await likeInUserService({ id, token });
+        console.log(data);
+        refreshLike(data);
       }
     } catch (error) {
       setError(error.message);
@@ -74,7 +84,7 @@ export const Links = ({
             <section>
               <button
                 className="boton-opciones"
-                onClick={() => {
+                onClick={(e) => {
                   handleLike(link.id);
                 }}
               >

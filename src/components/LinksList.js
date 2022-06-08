@@ -4,6 +4,7 @@ export const LinksList = ({
   links,
   deleteLink,
   refreshLike,
+  userId,
   refreshLikesInUserPage,
 }) => {
   return links.length ? (
@@ -14,6 +15,7 @@ export const LinksList = ({
             link={link}
             deleteLink={deleteLink}
             refreshLike={refreshLike}
+            userId={userId}
             refreshLikesInUserPage={refreshLikesInUserPage}
           />
         </li>
