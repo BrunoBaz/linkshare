@@ -89,14 +89,14 @@ export const UserPage = () => {
           <section className="header-contador">
             <section className="contador">
               <h3>{allLikes.likes}</h3>
-              <p>likes</p>
+              <p>Likes</p>
             </section>
 
             <div className="line"></div>
 
             <section className="contador">
               <h3>{follow.length}</h3>
-              <p>siguiendo</p>
+              <p>Siguiendo</p>
             </section>
 
             <div className="line"></div>
