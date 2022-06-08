@@ -1,4 +1,4 @@
-export const followUserService = async ({ id, token }) => {
+export const createFollowUserService = async ({ id, token }) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/user/${id}/follow`,
     {
@@ -12,5 +12,5 @@ export const followUserService = async ({ id, token }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
-  return json.data;
+  return json.message;
 };

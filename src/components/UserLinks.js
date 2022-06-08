@@ -3,7 +3,7 @@ import { LinksList } from "../components/LinksList";
 import { AuthContext } from "../context/AuthContext";
 import { useLinks } from "../hooks/useLinks";
 
-export const UserLinks = ({ id }) => {
+export const UserLinks = ({ id, refreshLikesInUserPage }) => {
   const { links, loading, error, deleteLink, refreshLike } = useLinks(id);
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>{error}</p>;
@@ -13,6 +13,7 @@ export const UserLinks = ({ id }) => {
       links={links}
       deleteLink={deleteLink}
       refreshLike={refreshLike}
+      refreshLikesInUserPage={refreshLikesInUserPage}
     />
   );
 };

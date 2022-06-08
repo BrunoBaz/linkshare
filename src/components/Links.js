@@ -10,7 +10,12 @@ import iconoLike from "../assets/img/icono-like.svg";
 import iconoBorrar from "../assets/img/icono-papelera.svg";
 import "./Links.css";
 
-export const Links = ({ link, deleteLink, refreshLike }) => {
+export const Links = ({
+  link,
+  deleteLink,
+  refreshLike,
+  refreshLikesInUserPage,
+}) => {
   const { user, token } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -33,6 +38,7 @@ export const Links = ({ link, deleteLink, refreshLike }) => {
       const data = await likeService({ id, token });
       if (refreshLike) {
         refreshLike(data);
+        refreshLikesInUserPage(data);
       }
     } catch (error) {
       setError(error.message);
