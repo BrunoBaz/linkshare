@@ -63,11 +63,16 @@ export const Links = ({
       setError(error.message);
     }
   };
+
   return (
     <article>
       {/* imagen del usuario */}
       <section className="autoria-link">
-        <img src={avatarDefault} alt="logo Linkshare" className="avatar-menu" />
+        <img
+          src={`${process.env.REACT_APP_BACKEND}/avatar/${link.imagen}`}
+          alt="logo Linkshare"
+          className="avatar-menu"
+        />
         <p>
           {" "}
           <Link to={`/user/${link.user_id}`}> {link.userName}</Link>
