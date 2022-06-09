@@ -3,7 +3,6 @@ import { logInUserService } from "../services/loginUserService";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./LoginRegisterPage.css";
-import { UserLinks } from "../components/UserLinks";
 
 export const LoginPage = () => {
   const navigate = useNavigate();

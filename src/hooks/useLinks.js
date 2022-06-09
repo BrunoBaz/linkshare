@@ -26,6 +26,7 @@ export const useLinks = (id) => {
   }, [id]);
 
   const refreshLike = (data) => {
+    console.log(data);
     setLinks([...data]);
   };
   const deleteLink = (id) => {

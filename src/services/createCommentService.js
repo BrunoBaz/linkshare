@@ -1,8 +1,10 @@
-export const likeInUserService = async ({ id, token }) => {
+export const createCommentService = async ({ id, data, token }) => {
+  console.log(id);
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/link/${id}/votes`,
+    `${process.env.REACT_APP_BACKEND}/link/${id.id}/comments`,
     {
       method: "POST",
+      body: data,
       headers: {
         Authorization: token,
       },
@@ -12,6 +14,5 @@ export const likeInUserService = async ({ id, token }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
-
   return json.data;
 };

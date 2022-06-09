@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./Nav.css";
 
 export const Nav = ({ setMostrarNav, mostrarNav }) => {
   const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
   return user ? (
     <nav>
       <div className="user-menu">
@@ -25,7 +26,13 @@ export const Nav = ({ setMostrarNav, mostrarNav }) => {
         >
           <p className="ver-perfil-nav">Ver perfil</p>
         </Link>
-        <button onClick={() => logout()} className="boton-logout">
+        <button
+          onClick={() => {
+            logout();
+            navigate("/login");
+          }}
+          className="boton-logout"
+        >
           Cerrar sesión
         </button>
       </div>

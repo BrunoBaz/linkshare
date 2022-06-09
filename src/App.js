@@ -39,9 +39,8 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </section>
-      <section className="footer">
-        <Footer />
-      </section>
+
+      <Footer />
     </main>
   );
 }

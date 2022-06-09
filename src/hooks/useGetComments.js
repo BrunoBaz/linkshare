@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { getCommentService } from "../services/getCommentService";
 import { getSingleLinkService } from "../services/getSingleLinkService";
 
-export const useSingleLink = (id) => {
-  const [link, setLink] = useState(null);
+export const useGetComments = (id) => {
+  const [comments, setComments] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -10,8 +11,8 @@ export const useSingleLink = (id) => {
     const loadLink = async () => {
       try {
         setLoading(true);
-        const data = await getSingleLinkService(id);
-        setLink(data);
+        const data = await getCommentService(id);
+        setComments(data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -20,9 +21,10 @@ export const useSingleLink = (id) => {
     };
     loadLink();
   }, [id]);
-  const refreshSingleLike = (data) => {
-    setLink(data);
+  const refreshComments = (data) => {
+    console.log(data);
+    setComments(data);
   };
 
-  return { link, loading, error, refreshSingleLike };
+  return { comments, loading, error, refreshComments };
 };

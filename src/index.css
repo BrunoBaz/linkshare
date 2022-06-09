@@ -19,3 +19,7 @@ ul {
   padding: 0px;
   margin: 0px;
 }
+.comentarios {
+  display: flex;
+  flex-direction: column;
+}

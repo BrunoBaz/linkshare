@@ -4,13 +4,13 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { deleteLinkService } from "../services/deleteLinkService";
-import { likeInUserService, likeService } from "../services/likeInUserService";
+import { likeInUserService } from "../services/likeInUserService";
 import avatarDefault from "../assets/img/avatar-default.svg";
 import iconoLike from "../assets/img/icono-like.svg";
 import iconoBorrar from "../assets/img/icono-papelera.svg";
 import "./Links.css";
-
 import { getLinksByUserId } from "../services/getLinksByUserId";
+import { getSingleLinkService } from "../services/getSingleLinkService";
 
 export const Links = ({
   link,
@@ -18,10 +18,13 @@ export const Links = ({
   refreshLike,
   userId,
   refreshLikesInUserPage,
+  refreshSingleLike,
+  idPost,
 }) => {
   const { user, token } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
   const removeLink = async (id) => {
     try {
       await deleteLinkService({ id, token });
@@ -39,15 +42,21 @@ export const Links = ({
     setError("");
     try {
       if (userId) {
+        //Like desde post del usuario
         await likeInUserService({ id, token });
-        console.log(userId);
+
         const data = await getLinksByUserId({ userId });
-        console.log(data);
         refreshLike(data);
         refreshLikesInUserPage(userId);
+      } else if (idPost) {
+        //Like desde un Post individual
+        console.log(idPost);
+        await likeInUserService({ id, token });
+        const data = await getSingleLinkService(idPost);
+        refreshSingleLike(data);
       } else {
+        //Like desde indice
         const data = await likeInUserService({ id, token });
-        console.log(data);
         refreshLike(data);
       }
     } catch (error) {
@@ -99,6 +108,11 @@ export const Links = ({
           )}
           <p className="likes">Likes {link.votes} </p>
         </section>
+        {!idPost && (
+          <section>
+            <p>Comentarios: {link.comentarios ? link.comentarios : 0}</p>
+          </section>
+        )}
         <section className="creacion">
           {user && user.id === link.user_id ? (
             <section>
@@ -116,6 +130,7 @@ export const Links = ({
               </button>
             </section>
           ) : null}
+
           <p className="fecha-publicacion">
             Publicado · {new Date(link.created_at).toLocaleString()}
           </p>
