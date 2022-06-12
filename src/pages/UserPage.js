@@ -4,7 +4,7 @@ import { ProfileForm } from "../components/ProfileForm";
 import { UserLinks } from "../components/UserLinks";
 import { AuthContext } from "../context/AuthContext";
 import { useUsersData } from "../hooks/useUsersData";
-
+import iconoFollow from "../assets/img/icono-follow.svg";
 import iconoEditar from "../assets/img/icono-editar.svg";
 import "./UserPage.css";
 import { createFollowUserService } from "../services/createFollowUserService";
@@ -58,12 +58,18 @@ export const UserPage = () => {
                     />
                   </button>
                 )}
+                {user && userData.id !== user.id && (
+                  <form onSubmit={handleFollow}>
+                    <button className="boton-follow">
+                      <img
+                        src={iconoFollow}
+                        alt="icono borar"
+                        className="icono-follow"
+                      />
+                    </button>
+                  </form>
+                )}
               </section>
-              {user && userData.id !== user.id && (
-                <form onSubmit={handleFollow}>
-                  <button>Follow</button>
-                </form>
-              )}
               <p className="user-contact">{`✉ ${userData.email}`}</p>
               {userData.telefono && (
                 <p className="user-contact">{`✆ ${userData.telefono}`}</p>

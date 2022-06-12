@@ -1,0 +1,29 @@
+li.comentario {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 0.7rem;
+}
+
+.body-comentarios {
+  display: flex;
+  padding: 1rem;
+  background-color: #bdf1f4;
+  filter: drop-shadow(1px 1px 5px #14b4bf5b);
+  border-radius: 2rem 2rem;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0.5rem;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.autoria-comentario {
+  display: flex;
+}
+
+.imput-comment {
+  border-style: none;
+}
