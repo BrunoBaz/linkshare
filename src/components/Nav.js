@@ -26,6 +26,14 @@ export const Nav = ({ setMostrarNav, mostrarNav }) => {
         >
           <p className="ver-perfil-nav">Ver perfil</p>
         </Link>
+        <Link
+          onClick={() => {
+            setMostrarNav(!mostrarNav);
+          }}
+          to="/search_user"
+        >
+          <p className="ver-perfil-nav">Buscar usuario</p>
+        </Link>
         <button
           onClick={() => {
             logout();

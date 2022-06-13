@@ -31,9 +31,6 @@ export const Header = ({ addLink }) => {
       </Link>
 
       <div className="menu-header">
-        <Link to="/search_user">
-          <button>Buscar usuario</button>
-        </Link>
         <Link to="/" className="goHome">
           <button
             className="goHome"

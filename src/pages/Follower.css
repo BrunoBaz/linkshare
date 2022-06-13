@@ -1,0 +1,13 @@
+.body-listuser {
+  display: flex;
+  padding-top: 3.5rem;
+  margin-bottom: 0;
+  background-color: #14b5bf;
+  height: 88.5%;
+  align-items: center;
+  justify-content: flex-start;
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.25));
+  overflow: auto;
+  align-content: space-around;
+  flex-direction: column;
+}

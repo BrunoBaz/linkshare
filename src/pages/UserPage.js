@@ -5,6 +5,7 @@ import { UserLinks } from "../components/UserLinks";
 import { AuthContext } from "../context/AuthContext";
 import { useUsersData } from "../hooks/useUsersData";
 import iconoFollow from "../assets/img/icono-follow.svg";
+import iconoUnFollow from "../assets/img/icono-unfollow.svg";
 import iconoEditar from "../assets/img/icono-editar.svg";
 import "./UserPage.css";
 import { createFollowUserService } from "../services/createFollowUserService";
@@ -65,28 +66,29 @@ export const UserPage = () => {
                 )}
                 {user && userData.id !== user.id && (
                   <form onSubmit={handleFollow}>
-                    <button className="boton-follow">
-                      <img
-                        src={iconoFollow}
-                        alt="icono borar"
-                        className="icono-follow"
-                      />
-                    </button>
+                    {!follower
+                      .map((foll) => foll.main_user_id)
+                      .includes(user.id) ? (
+                      <button className="boton-follow">
+                        <img
+                          src={iconoFollow}
+                          alt="icono follow"
+                          className="icono-follow"
+                        />
+                      </button>
+                    ) : (
+                      <button className="boton-follow">
+                        <img
+                          src={iconoUnFollow}
+                          alt="icono unfollow"
+                          className="icono-follow"
+                        />
+                      </button>
+                    )}
                   </form>
                 )}
               </section>
 
-              {user && userData.id !== user.id && (
-                <form onSubmit={handleFollow}>
-                  {!follower
-                    .map((foll) => foll.main_user_id)
-                    .includes(user.id) ? (
-                    <button>Follow</button>
-                  ) : (
-                    <button>Unfollow</button>
-                  )}
-                </form>
-              )}
               <p className="user-contact">{`✉ ${userData.email}`}</p>
               {userData.telefono && (
                 <p className="user-contact">{`✆ ${userData.telefono}`}</p>
@@ -117,22 +119,30 @@ export const UserPage = () => {
 
             <div className="line"></div>
             {follow && (
-              <Link to={`/user/${userData.id}/follow`} state={{ follow }}>
-                <section className="contador">
+              <section className="contador">
+                <Link
+                  className="link-contador"
+                  to={`/user/${userData.id}/follow`}
+                  state={{ follow }}
+                >
                   <h3>{follow.length}</h3>
                   <p>Siguiendo</p>
-                </section>
-              </Link>
+                </Link>
+              </section>
             )}
 
             <div className="line"></div>
             {follower && (
-              <Link to={`/user/${userData.id}/follower`} state={{ follower }}>
-                <section className="contador">
+              <section className="contador">
+                <Link
+                  className="link-contador"
+                  to={`/user/${userData.id}/follower`}
+                  state={{ follower }}
+                >
                   <h3>{follower.length}</h3>
                   <p>Me siguen</p>
-                </section>
-              </Link>
+                </Link>
+              </section>
             )}
           </section>
         </section>
