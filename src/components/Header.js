@@ -11,7 +11,7 @@ import goHome from "../assets/img/home.svg";
 import avatarDefault from "../assets/img/avatar-default.svg";
 import cerrarMenu from "../assets/img/menu-cerrar.svg";
 import conectar from "../assets/img/conectar.svg";
-import "./Header.css";
+import "./styles/Header.css";
 
 export const Header = ({ addLink }) => {
   const [mostrarNav, setMostrarNav] = useState(true);
@@ -31,6 +31,9 @@ export const Header = ({ addLink }) => {
       </Link>
 
       <div className="menu-header">
+        <Link to="/search_user">
+          <button>Buscar usuario</button>
+        </Link>
         <Link to="/" className="goHome">
           <button
             className="goHome"
@@ -51,7 +54,6 @@ export const Header = ({ addLink }) => {
           <div className={mostrarAddLink ? "hide-element" : null}>
             {mostrarAddLink ? (
               <div className="newlink-contain">
-                {" "}
                 <NewLink
                   addLink={addLink}
                   setMostrarAddLink={setMostrarAddLink}
@@ -60,7 +62,6 @@ export const Header = ({ addLink }) => {
               </div>
             ) : (
               <div className="newlink-contain">
-                {" "}
                 <NewLink
                   addLink={addLink}
                   setMostrarAddLink={setMostrarAddLink}

@@ -33,7 +33,11 @@ export const UserPage = () => {
       setLoading(false);
     }
   };
-
+  user &&
+    console.log(
+      follower.map((foll) => foll.main_user_id).includes(user.id),
+      user.id
+    );
   return (
     userData && (
       <section className="body-userPage">
@@ -74,7 +78,9 @@ export const UserPage = () => {
 
               {user && userData.id !== user.id && (
                 <form onSubmit={handleFollow}>
-                  {userData.id != follower.map((foll) => foll.seguido_id) ? (
+                  {!follower
+                    .map((foll) => foll.main_user_id)
+                    .includes(user.id) ? (
                     <button>Follow</button>
                   ) : (
                     <button>Unfollow</button>
@@ -110,17 +116,24 @@ export const UserPage = () => {
             </section>
 
             <div className="line"></div>
-
-            <section className="contador">
-              <h3>{follow.length}</h3>
-              <p>Siguiendo</p>
-            </section>
+            {follow && (
+              <Link to={`/user/${userData.id}/follow`} state={{ follow }}>
+                <section className="contador">
+                  <h3>{follow.length}</h3>
+                  <p>Siguiendo</p>
+                </section>
+              </Link>
+            )}
 
             <div className="line"></div>
-            <section className="contador">
-              <h3>{follower.length}</h3>
-              <p>Me siguen</p>
-            </section>
+            {follower && (
+              <Link to={`/user/${userData.id}/follower`} state={{ follower }}>
+                <section className="contador">
+                  <h3>{follower.length}</h3>
+                  <p>Me siguen</p>
+                </section>
+              </Link>
+            )}
           </section>
         </section>
         <UserLinks

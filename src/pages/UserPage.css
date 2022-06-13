@@ -16,6 +16,9 @@
   filter: drop-shadow(1px 1px 5px #14b4bfb6);
 }
 
+.followerPage > ul {
+  margin-top: 5rem;
+}
 #perfil {
   width: 8rem;
   height: 8rem;

@@ -9,6 +9,9 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { LinkPage } from "./pages/LinkPage";
 import { UserPage } from "./pages/UserPage";
 import { useLinks } from "./hooks/useLinks";
+import { FollowPage } from "./pages/FollowPage";
+import { FollowerPage } from "./pages/FollowerPage";
+import { SearchUsersPage } from "./pages/SearchUsersPage";
 
 function App() {
   const { links, error, loading, deleteLink, refreshLike, addLink } =
@@ -35,6 +38,10 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/user/:id" element={<UserPage />} />
+          <Route path="/search_user" element={<SearchUsersPage />} />
+
+          <Route path="/user/:id/follow" element={<FollowPage />} />
+          <Route path="/user/:id/follower" element={<FollowerPage />} />
           <Route path="/link/:id" element={<LinkPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { getAllUserDataService } from "../services/getAllUserDataService";
+import { getUserByIdDataService } from "../services/getUserByIdDataService";
 import { getLikesFromUsers } from "../services/getLikesFromUsers";
+import { getAllUsersService } from "../services/getAllUsersService";
 
 export const useUsersData = (id) => {
   const [userData, setUserData] = useState(null);
+  const [allUsers, setAllUsers] = useState([]);
   const [allLikes, setAllLikes] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -12,10 +14,15 @@ export const useUsersData = (id) => {
     const loadLink = async () => {
       try {
         setLoading(true);
-        const data = await getAllUserDataService(id);
-        const likes = await getLikesFromUsers(id);
-        setAllLikes(likes);
-        setUserData(data);
+        if (id) {
+          const data = await getUserByIdDataService(id);
+          const likes = await getLikesFromUsers(id);
+          setAllLikes(likes);
+          setUserData(data);
+        }
+        const user = await getAllUsersService();
+
+        setAllUsers(user);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -44,6 +51,7 @@ export const useUsersData = (id) => {
   };
 
   return {
+    allUsers,
     userData,
     allLikes,
     loading,
