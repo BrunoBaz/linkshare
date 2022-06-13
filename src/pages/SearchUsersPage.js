@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AllUsers } from "../components/AllUsers";
 import { SearchUser } from "../components/SearchUser";
 import { useUsersData } from "../hooks/useUsersData";
+import "./SearchUsersPage.css";
 
 export const SearchUsersPage = () => {
   const { allUsers } = useUsersData();
@@ -20,9 +21,9 @@ export const SearchUsersPage = () => {
     setFilter(e.target.value);
   };
   return (
-    <>
+    <section className="body-searchuser">
       <SearchUser handleFilter={handleFilter} />
       <AllUsers users={filteredUsers()} />
-    </>
+    </section>
   );
 };

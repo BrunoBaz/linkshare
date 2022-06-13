@@ -28,10 +28,15 @@ export const HomePage = ({
 
   return (
     <section className="body-home">
-      <form>
-        <label>Buscar post</label>
-        <input type="search" name="search" onChange={handleSearchLink} />
-        <button>Buscar</button>
+      <form className="body-buscar-post">
+        <label className="buscar-post">
+          <input
+            placeholder="Buscar post"
+            type="search"
+            name="search"
+            onChange={handleSearchLink}
+          />
+        </label>
       </form>
       <LinksList
         links={filteredLinks()}

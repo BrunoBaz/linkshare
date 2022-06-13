@@ -2,12 +2,32 @@
   display: flex;
   padding-top: 3.5rem;
   margin-bottom: 0;
-
   background-color: rgb(255, 255, 255);
   height: 88.5%;
-  align-items: stretch;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
   filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.25));
   overflow: auto;
   align-content: space-around;
+  flex-direction: column;
+}
+
+.body-buscar-post {
+  display: flex;
+  margin-top: 1rem;
+  background-color: #14b5bf;
+  border-radius: 2rem;
+  width: 50%;
+  height: 3rem;
+  filter: drop-shadow(1px 1px 5px #2d3c3d60);
+  justify-content: center;
+  align-items: center;
+}
+
+.buscar-post {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
 }
