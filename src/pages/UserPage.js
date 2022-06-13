@@ -17,6 +17,7 @@ export const UserPage = () => {
   const { user, token } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const { follow, follower, refreshFollow } = useFollowSystem(id);
+
   const [error, setError] = useState("");
   const [profile, setProfile] = useState(false);
 
@@ -70,6 +71,16 @@ export const UserPage = () => {
                   </form>
                 )}
               </section>
+
+              {user && userData.id !== user.id && (
+                <form onSubmit={handleFollow}>
+                  {userData.id != follower.map((foll) => foll.seguido_id) ? (
+                    <button>Follow</button>
+                  ) : (
+                    <button>Unfollow</button>
+                  )}
+                </form>
+              )}
               <p className="user-contact">{`✉ ${userData.email}`}</p>
               {userData.telefono && (
                 <p className="user-contact">{`✆ ${userData.telefono}`}</p>
