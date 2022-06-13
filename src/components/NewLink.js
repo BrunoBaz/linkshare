@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { sendLinkService } from "../services/sendLinkService";
 import { Link, useNavigate } from "react-router-dom";
-import "./NewLink.css";
+import "./styles/NewLink.css";
 
 export const NewLink = ({ addLink, setMostrarAddLink, mostrarAddLink }) => {
   const { token } = useContext(AuthContext);

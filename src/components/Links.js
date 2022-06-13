@@ -5,11 +5,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { deleteLinkService } from "../services/deleteLinkService";
 import { likeInUserService } from "../services/likeInUserService";
-import avatarDefault from "../assets/img/avatar-default.svg";
 import iconoLike from "../assets/img/icono-like.svg";
 import iconoComentario from "../assets/img/boton-comentarios.svg";
 import iconoBorrar from "../assets/img/icono-papelera.svg";
-import "./Links.css";
+import "./styles/Links.css";
 import { getLinksByUserId } from "../services/getLinksByUserId";
 import { getSingleLinkService } from "../services/getSingleLinkService";
 
@@ -64,7 +63,7 @@ export const Links = ({
       setError(error.message);
     }
   };
-  console.log(link);
+
   return (
     <article>
       {/* imagen del usuario */}

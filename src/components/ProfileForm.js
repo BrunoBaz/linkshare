@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { modifyUserProfileService } from "../services/modifyUserProfileService";
-import "./ProfileForm.css";
+import "./styles/ProfileForm.css";
 
 export const ProfileForm = ({ id, token, modifiedData }) => {
   const [imagen, setImage] = useState(null);

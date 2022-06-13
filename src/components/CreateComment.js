@@ -2,11 +2,11 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 import { Link } from "react-router-dom";
-import "./NewLink.css";
+import "./styles/NewLink.css";
 import { useGetComments } from "../hooks/useGetComments";
 import { createCommentService } from "../services/createCommentService";
 import { getCommentService } from "../services/getCommentService";
-import "./CreateCommet.css";
+import "./styles/CreateCommet.css";
 
 export const CreateComment = (id) => {
   const { user, token } = useContext(AuthContext);
