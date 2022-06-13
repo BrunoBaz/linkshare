@@ -6,6 +6,7 @@ import "./NewLink.css";
 import { useGetComments } from "../hooks/useGetComments";
 import { createCommentService } from "../services/createCommentService";
 import { getCommentService } from "../services/getCommentService";
+import "./CreateCommet.css";
 
 export const CreateComment = (id) => {
   const { user, token } = useContext(AuthContext);
@@ -31,32 +32,8 @@ export const CreateComment = (id) => {
   return (
     user && (
       <section className="comentarios">
-        <h1 className="">Comentarios:</h1>
-        {comments && (
-          <ul>
-            {comments.map((comment) => {
-              return (
-                <li key={comment.id} className="autoria-link">
-                  <article>
-                    <img
-                      src={`${process.env.REACT_APP_BACKEND}/avatar/${comment.imagen}`}
-                      alt={`Perfil del usuario ${comment.userName}`}
-                      className="avatar-menu"
-                    ></img>
-                    <p>
-                      <Link to={`/user/${comment.user_id}`}>
-                        {comment.userName}
-                      </Link>
-                    </p>
-                  </article>
-                  <p>{comment.comentario}</p>
-                </li>
-              );
-            })}
-          </ul>
-        )}
         <form onSubmit={handleForm}>
-          <fieldset className="">
+          <fieldset className="imput-comment">
             <label htmlFor="comentario">
               <h2>Añade un comentario</h2>
               <input
@@ -64,18 +41,44 @@ export const CreateComment = (id) => {
                 id="comentario"
                 name="comentario"
                 required
-                placeholder='"Un sitio para compartir enlaces"'
-                maxLength="30"
+                placeholder='"Este enlace me sirvió para encontrar lo que buscaba"'
+                maxLength="50"
               />
             </label>
 
             <button type="submit" className="boton-enviar">
-              Publicar
+              comentar
             </button>
           </fieldset>
           {sending ? <p>Sending comment</p> : null}
           {error ? <p>{error}</p> : null}
         </form>
+        <h1 className="">Comentarios:</h1>
+        {comments && (
+          <ul>
+            {comments.map((comment) => {
+              return (
+                <li key={comment.id} className="comentario">
+                  <article className="body-comentarios">
+                    <section className="autoria-comentario">
+                      <img
+                        src={`${process.env.REACT_APP_BACKEND}/avatar/${comment.imagen}`}
+                        alt={`Perfil del usuario ${comment.userName}`}
+                        className="avatar-menu"
+                      ></img>
+                      <p>
+                        <Link to={`/user/${comment.user_id}`}>
+                          {comment.userName}
+                        </Link>
+                      </p>
+                    </section>
+                    <p>{comment.comentario}</p>
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </section>
     )
   );

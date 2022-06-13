@@ -7,6 +7,7 @@ import { deleteLinkService } from "../services/deleteLinkService";
 import { likeInUserService } from "../services/likeInUserService";
 import avatarDefault from "../assets/img/avatar-default.svg";
 import iconoLike from "../assets/img/icono-like.svg";
+import iconoComentario from "../assets/img/boton-comentarios.svg";
 import iconoBorrar from "../assets/img/icono-papelera.svg";
 import "./Links.css";
 import { getLinksByUserId } from "../services/getLinksByUserId";
@@ -107,17 +108,27 @@ export const Links = ({
                   alt="icono like"
                   className="icono-opciones"
                 />
+                <p className="likes"> {link.votes} </p>
               </button>
               {error && <p>{error}</p>}
             </section>
           )}
-          <p className="likes">Likes {link.votes} </p>
+          {!idPost && (
+            <Link to={`/link/${link.id}`} className="comentarios">
+              <button className="boton-opciones">
+                <img
+                  src={iconoComentario}
+                  alt="icono comentarios"
+                  className="icono-opciones"
+                />
+                <p className="likes">
+                  {" "}
+                  {link.comentarios ? link.comentarios : 0}
+                </p>
+              </button>
+            </Link>
+          )}
         </section>
-        {!idPost && (
-          <section>
-            <p>Comentarios: {link.comentarios ? link.comentarios : 0}</p>
-          </section>
-        )}
         <section className="creacion">
           {user && user.id === link.user_id ? (
             <section>

@@ -91,6 +91,7 @@ a {
 .boton-opciones {
   border-style: none;
   background-color: #13a8b300;
+  display: flex;
 }
 
 .fecha-publicacion {
