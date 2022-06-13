@@ -63,7 +63,7 @@ export const Links = ({
       setError(error.message);
     }
   };
-
+  console.log(link);
   return (
     <article>
       {/* imagen del usuario */}

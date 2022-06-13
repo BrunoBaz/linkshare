@@ -11,7 +11,7 @@ export const useLinks = (id) => {
     const loadLinks = async () => {
       try {
         setLoading(true);
-        console.log(id);
+
         const data = id
           ? await getLinksByUserId({ id })
           : await getAllLinksService();
@@ -26,7 +26,6 @@ export const useLinks = (id) => {
   }, [id]);
 
   const refreshLike = (data) => {
-    console.log(data);
     setLinks([...data]);
   };
   const deleteLink = (id) => {
