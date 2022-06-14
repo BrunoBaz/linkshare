@@ -12,8 +12,8 @@ export const AllUsers = ({ users }) => {
                 src={`${process.env.REACT_APP_BACKEND}/avatar/${user.imagen}`}
                 alt="logo Linkshare"
                 className="avatar-menu"
-              />{" "}
-              <p>{user.userName}</p>{" "}
+              />
+              <p>{user.userName}</p>
             </li>
           </Link>
         ))}

@@ -8,6 +8,7 @@ export const FollowPage = () => {
   return (
     <section className="body-listuser">
       <section className="userlist">
+        <h2> Usuarios que sigo:</h2>
         <ul className="ul-userlist">
           {follow.length > 0 ? (
             allUsers.map(
