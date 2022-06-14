@@ -20,15 +20,17 @@ export const Header = ({ addLink }) => {
   useEffect(() => {});
   return user ? (
     <header id="header" className="header">
-      <Link
-        to="/"
-        onClick={() => {
-          setMostrarAddLink(true);
-          setMostrarNav(true);
-        }}
-      >
-        <img src={logo} alt="logo Linkshare" className="logo-menu" />
-      </Link>
+      <div className="link-logo-menu">
+        <Link
+          to="/"
+          onClick={() => {
+            setMostrarAddLink(true);
+            setMostrarNav(true);
+          }}
+        >
+          <img src={logo} alt="logo Linkshare" className="logo-menu" />
+        </Link>
+      </div>
 
       <div className="menu-header">
         <Link to="/" className="goHome">
@@ -133,9 +135,17 @@ export const Header = ({ addLink }) => {
     </header>
   ) : (
     <header id="header" className="header">
-      <Link to="/">
-        <img src={logo} alt="logo Linkshare" className="logo-menu" />
-      </Link>
+      <div className="link-logo-menu">
+        <Link
+          to="/"
+          onClick={() => {
+            setMostrarAddLink(true);
+            setMostrarNav(true);
+          }}
+        >
+          <img src={logo} alt="logo Linkshare" className="logo-menu" />
+        </Link>
+      </div>
 
       <div className="menu-header">
         <Link to="/" className="goHome">
