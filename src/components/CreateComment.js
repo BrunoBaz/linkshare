@@ -7,8 +7,9 @@ import { useGetComments } from "../hooks/useGetComments";
 import { createCommentService } from "../services/createCommentService";
 import { getCommentService } from "../services/getCommentService";
 import "./styles/CreateCommet.css";
+import { getAllLinksService } from "../services/getAllLinksService";
 
-export const CreateComment = (id) => {
+export const CreateComment = ({ id, refreshComment }) => {
   const { user, token } = useContext(AuthContext);
   const { comments, refreshComments } = useGetComments(id);
   const [error, setError] = useState("");
@@ -20,12 +21,16 @@ export const CreateComment = (id) => {
       const data = new FormData(e.target);
       await createCommentService({ id, data, token });
       const refreshedComment = await getCommentService(id);
+      console.log(refreshedComment);
       refreshComments(refreshedComment);
       e.target.reset();
     } catch (error) {
       setError(error.message);
     } finally {
       setSending(false);
+      const data = await getAllLinksService();
+      console.log({ data });
+      refreshComment(data);
     }
   };
 

@@ -4,6 +4,6 @@ export const getAllLinksService = async () => {
   if (!response.ok) {
     throw new Error(json.message);
   }
-
+  console.log(json.data);
   return json.data;
 };

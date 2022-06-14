@@ -9,6 +9,8 @@ export const HomePage = ({
   error,
   deleteLink,
   refreshLike,
+  refreshComments,
+  comments,
 }) => {
   const [filter, setFilter] = useState("");
 
@@ -35,8 +37,10 @@ export const HomePage = ({
       </form>
       <LinksList
         links={filteredLinks()}
+        comments={comments}
         deleteLink={deleteLink}
         refreshLike={refreshLike}
+        refreshComments={refreshComments}
       />
     </section>
   );
