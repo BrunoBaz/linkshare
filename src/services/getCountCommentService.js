@@ -1,7 +1,6 @@
-export const getCommentService = async (id) => {
-  console.log(id);
+export const getCountCommentService = async () => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/link/${id}/comments`
+    `${process.env.REACT_APP_BACKEND}/link/comments`
   );
   const json = await response.json();
   if (!response.ok) {

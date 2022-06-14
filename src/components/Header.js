@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
@@ -17,7 +17,7 @@ export const Header = ({ addLink }) => {
   const [mostrarNav, setMostrarNav] = useState(true);
   const [mostrarAddLink, setMostrarAddLink] = useState(true);
   const { user } = useContext(AuthContext);
-
+  useEffect(() => {});
   return user ? (
     <header id="header" className="header">
       <Link

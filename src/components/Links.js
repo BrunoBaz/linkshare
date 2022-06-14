@@ -1,5 +1,5 @@
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
@@ -11,6 +11,8 @@ import iconoBorrar from "../assets/img/icono-papelera.svg";
 import "./styles/Links.css";
 import { getLinksByUserId } from "../services/getLinksByUserId";
 import { getSingleLinkService } from "../services/getSingleLinkService";
+import { useGetComments } from "../hooks/useGetComments";
+import { getCountCommentService } from "../services/getCountCommentService";
 
 export const Links = ({
   link,
@@ -24,6 +26,7 @@ export const Links = ({
   const { user, token } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [comments, setComments] = useState([]);
 
   const removeLink = async (id) => {
     try {
@@ -37,7 +40,13 @@ export const Links = ({
       setError(error.message);
     }
   };
-
+  useEffect(() => {
+    const getComments = async () => {
+      const countComments = await getCountCommentService();
+      setComments(countComments);
+    };
+    getComments();
+  }, []);
   const handleLike = async (id) => {
     setError("");
     try {
@@ -57,13 +66,14 @@ export const Links = ({
       } else {
         //Like desde indice
         const data = await likeInUserService({ id, token });
+
         refreshLike(data);
       }
     } catch (error) {
       setError(error.message);
     }
   };
-
+  console.log();
   return (
     <article>
       {/* imagen del usuario */}
@@ -121,8 +131,11 @@ export const Links = ({
                   className="icono-opciones"
                 />
                 <p className="likes">
-                  {" "}
-                  {link.comentarios ? link.comentarios : 0}
+                  {comments
+                    ? comments.map(
+                        (comment) => comment.id === link.id && comment.comments
+                      )
+                    : 0}
                 </p>
               </button>
             </Link>

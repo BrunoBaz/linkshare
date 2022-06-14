@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { getAllLinksService } from "../services/getAllLinksService";
+import { getCountCommentService } from "../services/getCountCommentService";
 import { getLinksByUserId } from "../services/getLinksByUserId";
 
 export const useLinks = (id) => {
   const [links, setLinks] = useState([]);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -15,6 +17,7 @@ export const useLinks = (id) => {
         const data = id
           ? await getLinksByUserId({ id })
           : await getAllLinksService();
+
         setLinks(data);
       } catch (error) {
         setError(error.message);
@@ -34,6 +37,18 @@ export const useLinks = (id) => {
   const addLink = (data) => {
     setLinks([data, ...links]);
   };
+  const refreshComments = (data) => {
+    setLinks(data);
+  };
 
-  return { links, loading, error, addLink, deleteLink, refreshLike };
+  return {
+    links,
+    loading,
+    error,
+    addLink,
+    deleteLink,
+    refreshLike,
+
+    refreshComments,
+  };
 };

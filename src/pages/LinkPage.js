@@ -5,10 +5,11 @@ import { useLinks } from "../hooks/useLinks";
 import { useSingleLink } from "../hooks/useSingleLink";
 import "./LinkPage.css";
 
-export const LinkPage = () => {
+export const LinkPage = ({ refreshComment }) => {
   const { id } = useParams();
   const { link, loading, error, refreshSingleLike } = useSingleLink(id);
   const idPost = id;
+
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>{error}</p>;
 
@@ -20,7 +21,9 @@ export const LinkPage = () => {
           refreshSingleLike={refreshSingleLike}
           idPost={idPost}
         />
-        {idPost && <CreateComment id={idPost} />}
+        {idPost && (
+          <CreateComment id={idPost} refreshComment={refreshComment} />
+        )}
       </section>
     </>
   );

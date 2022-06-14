@@ -14,8 +14,16 @@ import { FollowerPage } from "./pages/FollowerPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 
 function App() {
-  const { links, error, loading, deleteLink, refreshLike, addLink } =
-    useLinks();
+  const {
+    links,
+    error,
+    loading,
+    deleteLink,
+    refreshLike,
+    addLink,
+    comments,
+    refreshComment,
+  } = useLinks();
   return (
     <main>
       <section className="header">
@@ -32,6 +40,7 @@ function App() {
                 refreshLike={refreshLike}
                 error={error}
                 loading={loading}
+                comments={comments}
               />
             }
           />
@@ -42,7 +51,10 @@ function App() {
 
           <Route path="/user/:id/follow" element={<FollowPage />} />
           <Route path="/user/:id/follower" element={<FollowerPage />} />
-          <Route path="/link/:id" element={<LinkPage />} />
+          <Route
+            path="/link/:id"
+            element={<LinkPage refreshComment={refreshComment} />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </section>
