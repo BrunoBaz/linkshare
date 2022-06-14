@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom";
 import { CreateComment } from "../components/CreateComment";
 import { Links } from "../components/Links";
-import { useLinks } from "../hooks/useLinks";
 import { useSingleLink } from "../hooks/useSingleLink";
 import "./LinkPage.css";
 
-export const LinkPage = ({ refreshComment }) => {
+export const LinkPage = () => {
   const { id } = useParams();
   const { link, loading, error, refreshSingleLike } = useSingleLink(id);
   const idPost = id;
@@ -21,9 +20,7 @@ export const LinkPage = ({ refreshComment }) => {
           refreshSingleLike={refreshSingleLike}
           idPost={idPost}
         />
-        {idPost && (
-          <CreateComment id={idPost} refreshComment={refreshComment} />
-        )}
+        {idPost && <CreateComment id={idPost} />}
       </section>
     </>
   );

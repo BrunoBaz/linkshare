@@ -11,7 +11,6 @@ import iconoBorrar from "../assets/img/icono-papelera.svg";
 import "./styles/Links.css";
 import { getLinksByUserId } from "../services/getLinksByUserId";
 import { getSingleLinkService } from "../services/getSingleLinkService";
-import { useGetComments } from "../hooks/useGetComments";
 import { getCountCommentService } from "../services/getCountCommentService";
 
 export const Links = ({

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getAllLinksService } from "../services/getAllLinksService";
-import { getCountCommentService } from "../services/getCountCommentService";
 import { getLinksByUserId } from "../services/getLinksByUserId";
 
 export const useLinks = (id) => {
@@ -37,9 +36,6 @@ export const useLinks = (id) => {
   const addLink = (data) => {
     setLinks([data, ...links]);
   };
-  const refreshComments = (data) => {
-    setLinks(data);
-  };
 
   return {
     links,
@@ -48,7 +44,5 @@ export const useLinks = (id) => {
     addLink,
     deleteLink,
     refreshLike,
-
-    refreshComments,
   };
 };

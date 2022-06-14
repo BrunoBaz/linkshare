@@ -7,9 +7,8 @@ import { useGetComments } from "../hooks/useGetComments";
 import { createCommentService } from "../services/createCommentService";
 import { getCommentService } from "../services/getCommentService";
 import "./styles/CreateCommet.css";
-import { getAllLinksService } from "../services/getAllLinksService";
 
-export const CreateComment = ({ id, refreshComment }) => {
+export const CreateComment = ({ id }) => {
   const { user, token } = useContext(AuthContext);
   const { comments, refreshComments } = useGetComments(id);
   const [error, setError] = useState("");
@@ -28,9 +27,6 @@ export const CreateComment = ({ id, refreshComment }) => {
       setError(error.message);
     } finally {
       setSending(false);
-      const data = await getAllLinksService();
-      console.log({ data });
-      refreshComment(data);
     }
   };
 

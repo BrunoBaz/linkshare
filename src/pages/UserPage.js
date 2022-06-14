@@ -16,7 +16,7 @@ export const UserPage = () => {
   const { userData, allLikes, modifiedData, refreshLikesInUserPage } =
     useUsersData(id);
   const { user, token } = useContext(AuthContext);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const { follow, follower, refreshFollow } = useFollowSystem(id);
 
   const [error, setError] = useState("");
@@ -152,7 +152,7 @@ export const UserPage = () => {
           refreshLikesInUserPage={refreshLikesInUserPage}
         />
         {error && <p>{error}</p>}
-        {/*{loading && <p>Cargando...</p>}*/}
+        {loading && <p>Cargando...</p>}
       </section>
     )
   );
