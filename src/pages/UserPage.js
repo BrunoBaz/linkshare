@@ -7,7 +7,7 @@ import { useUsersData } from "../hooks/useUsersData";
 import iconoFollow from "../assets/img/icono-follow.svg";
 import iconoUnFollow from "../assets/img/icono-unfollow.svg";
 import iconoEditar from "../assets/img/icono-editar.svg";
-import "./UserPage.css";
+import "../styles/UserPage.css";
 import { createFollowUserService } from "../services/createFollowUserService";
 import { useFollowSystem } from "../hooks/useFollowSystem";
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AllUsers } from "../components/AllUsers";
 import { SearchUser } from "../components/SearchUser";
 import { useUsersData } from "../hooks/useUsersData";
-import "./SearchUsersPage.css";
+import "../styles/SearchUsersPage.css";
 
 export const SearchUsersPage = () => {
   const { allUsers } = useUsersData();

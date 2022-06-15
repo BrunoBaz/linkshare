@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LinksList } from "../components/LinksList";
 
-import "./HomePage.css";
+import "../styles/HomePage.css";
 
 export const HomePage = ({
   links,

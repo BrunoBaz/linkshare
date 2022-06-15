@@ -1,4 +1,4 @@
-import "./styles/Footer.css";
+import "../styles/Footer.css";
 export const Footer = () => {
   return <footer className="footer">Bruno Baz & Ronald Herrera</footer>;
 };

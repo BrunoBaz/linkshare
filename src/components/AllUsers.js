@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./styles/AllUsers.css";
+import "../styles/AllUsers.css";
 
 export const AllUsers = ({ users }) => {
   return (

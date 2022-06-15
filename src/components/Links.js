@@ -8,7 +8,7 @@ import { likeInUserService } from "../services/likeInUserService";
 import iconoLike from "../assets/img/icono-like.svg";
 import iconoComentario from "../assets/img/boton-comentarios.svg";
 import iconoBorrar from "../assets/img/icono-papelera.svg";
-import "./styles/Links.css";
+import "../styles/Links.css";
 import { getLinksByUserId } from "../services/getLinksByUserId";
 import { getSingleLinkService } from "../services/getSingleLinkService";
 import { getCountCommentService } from "../services/getCountCommentService";
@@ -103,12 +103,29 @@ export const Links = ({
 
       <section className="opciones-link">
         <section className="votos">
-          {user && (
+          {user ? (
             <section>
               <button
                 className="boton-opciones"
                 onClick={(e) => {
                   handleLike(link.id);
+                }}
+              >
+                <img
+                  src={iconoLike}
+                  alt="icono like"
+                  className="icono-opciones"
+                />
+                <p className="likes"> {link.votes} </p>
+              </button>
+              {error && <p>{error}</p>}
+            </section>
+          ) : (
+            <section>
+              <button
+                className="boton-opciones"
+                onClick={(e) => {
+                  navigate("/login");
                 }}
               >
                 <img
@@ -129,13 +146,13 @@ export const Links = ({
                   alt="icono comentarios"
                   className="icono-opciones"
                 />
-                <p className="likes">
-                  {comments
-                    ? comments.map(
-                        (comment) => comment.id === link.id && comment.comments
-                      )
-                    : 0}
-                </p>
+                {
+                  <p className="likes">
+                    {comments.map(
+                      (comment) => comment.id === link.id && comment.comments
+                    )}
+                  </p>
+                }
               </button>
             </Link>
           )}

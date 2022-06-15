@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import { LinksList } from "../components/LinksList";
-import { AuthContext } from "../context/AuthContext";
+
 import { useLinks } from "../hooks/useLinks";
 
 export const UserLinks = ({ id, refreshLikesInUserPage }) => {

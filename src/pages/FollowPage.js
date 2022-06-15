@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useUsersData } from "../hooks/useUsersData";
-import "./Follower.css";
+import "../styles/Follower.css";
+
 export const FollowPage = () => {
   const { follow } = useLocation().state;
   const { allUsers } = useUsersData();

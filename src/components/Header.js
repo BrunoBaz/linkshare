@@ -11,7 +11,7 @@ import goHome from "../assets/img/home.svg";
 import avatarDefault from "../assets/img/avatar-default.svg";
 import cerrarMenu from "../assets/img/menu-cerrar.svg";
 import conectar from "../assets/img/conectar.svg";
-import "./styles/Header.css";
+import "../styles/Header.css";
 
 export const Header = ({ addLink }) => {
   const [mostrarNav, setMostrarNav] = useState(true);

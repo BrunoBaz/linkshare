@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { CreateComment } from "../components/CreateComment";
 import { Links } from "../components/Links";
 import { useSingleLink } from "../hooks/useSingleLink";
-import "./LinkPage.css";
+import "../styles/LinkPage.css";
 
 export const LinkPage = () => {
   const { id } = useParams();
