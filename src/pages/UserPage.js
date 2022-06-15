@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ProfileForm } from "../components/ProfileForm";
 import { UserLinks } from "../components/UserLinks";
@@ -11,7 +11,7 @@ import "../styles/UserPage.css";
 import { createFollowUserService } from "../services/createFollowUserService";
 import { useFollowSystem } from "../hooks/useFollowSystem";
 
-export const UserPage = () => {
+export const UserPage = memo(() => {
   const { id } = useParams();
   const { userData, allLikes, modifiedData, refreshLikesInUserPage } =
     useUsersData(id);
@@ -156,4 +156,4 @@ export const UserPage = () => {
       </section>
     )
   );
-};
+});

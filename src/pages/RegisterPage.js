@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUserService } from "../services/registerUserService";
 import "../styles/LoginRegisterPage.css";
 import { Link } from "react-router-dom";
 
-export const RegisterPage = () => {
+export const RegisterPage = memo(() => {
   const [userName, setUserName] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -88,4 +88,4 @@ export const RegisterPage = () => {
       </section>
     </section>
   );
-};
+});

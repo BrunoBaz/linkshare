@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import "../styles/AllUsers.css";
 
-export const AllUsers = ({ users }) => {
+export const AllUsers = memo(({ users }) => {
   return (
     <section className="userlist">
       <ul className="ul-userlist">
@@ -20,4 +21,4 @@ export const AllUsers = ({ users }) => {
       </ul>
     </section>
   );
-};
+});

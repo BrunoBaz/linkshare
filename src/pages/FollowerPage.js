@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useUsersData } from "../hooks/useUsersData";
 import "../styles/Follower.css";
 
-export const FollowerPage = () => {
+export const FollowerPage = memo(() => {
   const { follower } = useLocation().state;
   const { allUsers } = useUsersData();
 
@@ -34,4 +35,4 @@ export const FollowerPage = () => {
       </section>
     </section>
   );
-};
+});
