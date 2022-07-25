@@ -48,7 +48,7 @@ export const NewLink = ({ addLink, setMostrarAddLink, mostrarAddLink }) => {
             2-.¿Cúal es enlace que quieres compartir?
           </h2>
           <input
-            type="url"
+            type="text"
             id="url"
             name="url"
             required

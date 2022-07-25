@@ -11,6 +11,8 @@ export const RegisterPage = memo(() => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
   const navigate = useNavigate();
+  console.log(process.env.REACT_APP_BACKEND);
+
   const handleForm = async (e) => {
     e.preventDefault();
     setError("");
