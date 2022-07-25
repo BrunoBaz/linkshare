@@ -1,5 +1,5 @@
 export const getMyDataService = async (token) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}user`, {
     headers: {
       Authorization: token,
     },

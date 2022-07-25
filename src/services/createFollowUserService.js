@@ -1,6 +1,6 @@
 export const createFollowUserService = async ({ id, token }) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/user/${id}/follow`,
+    `${process.env.REACT_APP_BACKEND}user/${id}/follow`,
     {
       method: "POST",
       headers: {

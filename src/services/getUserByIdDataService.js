@@ -1,5 +1,5 @@
 export const getUserByIdDataService = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`);
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}user/${id}`);
   const json = await response.json();
 
   if (!response.ok) {

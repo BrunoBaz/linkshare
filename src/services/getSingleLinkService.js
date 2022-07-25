@@ -1,5 +1,5 @@
 export const getSingleLinkService = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/link/${id}`);
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}link/${id}`);
   const json = await response.json();
 
   if (!response.ok) {
