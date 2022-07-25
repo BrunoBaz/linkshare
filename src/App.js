@@ -19,6 +19,7 @@ function App() {
   return (
     <main>
       <section className="header">
+        <p>{process.env.REACT_APP_BACKEND}</p>
         <Header addLink={addLink} />
       </section>
       <section className="body">
