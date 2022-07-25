@@ -1,5 +1,5 @@
 export const modifyUserProfileService = async ({ data, id, token }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}user/${id}`, {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`, {
     method: "PUT",
     body: data,
     headers: {

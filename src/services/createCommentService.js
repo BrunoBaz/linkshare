@@ -1,7 +1,7 @@
 export const createCommentService = async ({ id, data, token }) => {
   console.log(id);
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}link/${id}/comments`,
+    `${process.env.REACT_APP_BACKEND}/link/${id}/comments`,
     {
       method: "POST",
       body: data,

@@ -1,6 +1,6 @@
 export const getFollowerUserService = async (id) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}user/${id}/follower`
+    `${process.env.REACT_APP_BACKEND}/user/${id}/follower`
   );
   const json = await response.json();
   if (!response.ok) {

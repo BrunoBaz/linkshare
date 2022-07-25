@@ -1,5 +1,5 @@
 export const logInUserService = async ({ email, password }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}login`, {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/login`, {
     method: "POST",
     body: JSON.stringify({ email, password }),
     headers: { "Content-Type": "application/json" },
